@@ -83,11 +83,9 @@ h2 {
 .nav .logo { margin-right: auto; }
 
 .logo-mark {
-  width: 9px;
-  height: 9px;
-  background: var(--accent);
-  border-radius: 2px;
-  transform: rotate(45deg);
+  width: 18px;
+  height: 18px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230891b2'/%3E%3Cpath d='M4.3 12V4h1.9l3.6 5V4h1.9v8H9.8L6.2 7v5z' fill='%23fff'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .logo-name {
@@ -640,7 +638,7 @@ html[data-theme="light"] .theme-toggle .ic-moon { display: block; }
   flex-wrap: wrap;
 }
 
-.footer .logo-mark { width: 7px; height: 7px; }
+.footer .logo-mark { width: 16px; height: 16px; }
 
 .footer .logo-name { font-size: 13px; }
 
