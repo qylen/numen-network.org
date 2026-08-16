@@ -642,7 +642,17 @@ html[data-theme="light"] .theme-toggle .ic-moon { display: block; }
 
 .footer .logo-name { font-size: 13px; }
 
-.footer .logo { margin-right: auto; }
+.foot-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 24px;
+  margin-right: auto;
+  font-size: 13px;
+  color: var(--dim);
+}
+
+.foot-mail:hover { color: var(--ink); }
 
 .foot-icon {
   display: grid;
