@@ -638,9 +638,7 @@ html[data-theme="light"] .theme-toggle .ic-moon { display: block; }
   flex-wrap: wrap;
 }
 
-.footer .logo-mark { width: 16px; height: 16px; }
-
-.footer .logo-name { font-size: 13px; }
+.foot-copy { font-size: 13px; color: var(--dim); }
 
 .foot-mail {
   display: inline-flex;
