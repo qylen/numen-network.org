@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Developer Hub — Build on Numen · EVM Chain 320261</title>
-<meta name="description" content="Build on Numen Layer 1. EVM Chain ID 320261 (testnet), standard JSON-RPC, MetaMask setup, Foundry/Hardhat deployment, ERC-20 precompiles, and the PoScan mining RPC reference.">
-<link rel="canonical" href="https://numen-network.org/developers.html">
+<title>Mining — Earn NMN with Proof of Scan · Numen Network</title>
+<meta name="description" content="Mine Numen: CPU-friendly Proof-of-Scan geometry work on the testnet. Run a node, set a payout address, scan, submit seals, earn 16 NMN block rewards. No private key required on the mining rig.">
+<link rel="canonical" href="https://numen-network.org/mining.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Numen Network">
-<meta property="og:title" content="Developer Hub — Build on Numen">
-<meta property="og:description" content="EVM Chain ID 320261 (testnet), JSON-RPC endpoints, MetaMask, Foundry/Hardhat deployment, precompiles, mining RPC.">
-<meta property="og:url" content="https://numen-network.org/developers.html">
+<meta property="og:title" content="Mining — Earn NMN with Proof of Scan · Numen Network">
+<meta property="og:description" content="CPU-friendly geometric proof-of-work. Keys stay offline; rewards accrue to a payout address.">
+<meta property="og:url" content="https://numen-network.org/mining.html">
 <meta property="og:image" content="https://numen-network.org/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Developer Hub · Numen Network">
-<meta name="twitter:description" content="Standard Ethereum tooling on a Proof-of-Scan Layer 1.">
+<meta name="twitter:title" content="Mining · Numen Network">
+<meta name="twitter:description" content="Mine NMN with Proof-of-Scan geometry work.">
 <meta name="twitter:image" content="https://numen-network.org/og.png">
 <meta name="theme-color" content="#06070b">
 <meta name="theme-color" content="#fafbfd" media="(prefers-color-scheme: light)">
@@ -43,8 +43,8 @@
     <div class="nav-links">
       <a class="nav-link" href="index.html">Overview</a>
       <a class="nav-link" href="network.html">Technology</a>
-      <a class="nav-link" href="mining.html">Mining</a>
-      <a class="nav-link active" href="developers.html" aria-current="page">Developers</a>
+      <a class="nav-link active" href="mining.html" aria-current="page">Mining</a>
+      <a class="nav-link" href="developers.html">Developers</a>
       <a class="nav-link" href="ecosystem.html">Ecosystem</a>
       <a class="nav-link" href="docs.html">Docs</a>
     </div>
@@ -56,7 +56,7 @@
         <svg class="ic-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
         <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
-      <a class="btn btn-primary btn-nav" href="#config">Network Config</a>
+      <a class="btn btn-primary btn-nav" href="developers.html">Start Building</a>
       <button class="icon-btn nav-burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -67,13 +67,13 @@
     <nav class="mm-links" aria-label="Mobile navigation">
       <a href="index.html">Overview<span class="mm-n">01</span></a>
       <a href="network.html">Technology<span class="mm-n">02</span></a>
-      <a href="mining.html">Mining<span class="mm-n">03</span></a>
-      <a class="active" href="developers.html">Developers<span class="mm-n">04</span></a>
+      <a class="active" href="mining.html">Mining<span class="mm-n">03</span></a>
+      <a href="developers.html">Developers<span class="mm-n">04</span></a>
       <a href="ecosystem.html">Ecosystem<span class="mm-n">05</span></a>
       <a href="docs.html">Docs<span class="mm-n">06</span></a>
     </nav>
     <div class="mm-foot">
-      <a class="btn btn-primary" href="#config">Network Config</a>
+      <a class="btn btn-primary" href="https://github.com/numen-network/numen/releases" target="_blank" rel="noopener">Download Release</a>
     </div>
   </div>
 
@@ -81,233 +81,170 @@
 
     <header class="page-hero">
       <div class="wrap">
-        <p class="crumb rv"><a href="index.html">Overview</a><span class="sep">/</span>Developers</p>
-        <h1 class="rv" style="--rvd:60ms;">Build the physical world on-chain.</h1>
+        <p class="crumb rv"><a href="index.html">Overview</a><span class="sep">/</span>Mining</p>
+        <h1 class="rv" style="--rvd:60ms;">Mine the scan.</h1>
         <p class="hero-sub rv" style="--rvd:140ms;">
-          Numen speaks plain Ethereum: standard JSON-RPC, standard toolchains, zero
-          modifications. Deploy Solidity, read identities, sign with the wallet you
-          already use.
+          Numen&rsquo;s proof-of-work is geometric scanning &mdash; CPU-friendly,
+          permissionless, and verifiable. Your keys never touch the rig.
         </p>
-        <dl class="hero-meta rv" style="--rvd:220ms;">
-          <div><dt>Chain ID</dt><dd>320261 &middot; testnet</dd></div>
-          <div><dt>Currency</dt><dd>NMN &middot; 18 dec</dd></div>
-          <div><dt>Tooling</dt><dd>Foundry &middot; Hardhat &middot; viem</dd></div>
-          <div><dt>Precompile</dt><dd>ERC-20 + EIP-2612</dd></div>
+        <div class="cta-row rv" style="--rvd:220ms;">
+          <a class="btn btn-primary" href="#setup">
+            Start Mining
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/numen-network/numen/releases" target="_blank" rel="noopener">Download release</a>
+        </div>
+        <dl class="hero-meta rv" style="--rvd:290ms;">
+          <div><dt>Reward</dt><dd>16 NMN / block</dd></div>
+          <div><dt>Halving</dt><dd>every 12.5M blocks</dd></div>
+          <div><dt>Hardware</dt><dd>CPU &middot; no ASICs</dd></div>
+          <div><dt>Key material</dt><dd>Not required</dd></div>
         </dl>
       </div>
     </header>
 
     <nav class="subnav" aria-label="Page sections">
       <div class="subnav-inner">
-        <span class="subnav-label">Quick links</span>
-        <a href="#config">Network configuration</a>
-        <a href="#snippets">Code snippets</a>
-        <a href="#deploy">Deploy contracts</a>
-        <a href="#precompiles">Precompiles</a>
-        <a href="#rpc">Mining RPC</a>
-        <a href="#node">Run a node</a>
+        <span class="subnav-label">On this page</span>
+        <a href="#why">Why mine</a>
+        <a href="#setup">Setup guide</a>
+        <a href="#external">External miners</a>
+        <a href="#security">Security notes</a>
       </div>
     </nav>
 
-    <!-- ========================= Network configuration ======================== -->
-    <section id="config" class="section" aria-labelledby="cfg-title">
+    <!-- ============================== Why mine ================================ -->
+    <section id="why" class="section" aria-labelledby="why-title">
       <div class="wrap">
         <div class="section-head rv">
-          <p class="eyebrow">Step 01</p>
-          <h2 id="cfg-title">Point your stack at Numen</h2>
-          <p class="lead">
-            Add Numen Testnet to MetaMask or configure any EVM library directly.
-            The chain ID is <code>320261</code> (<code>0x4e305</code>) &mdash; <code>32026</code> is reserved for mainnet.
-          </p>
+          <p class="eyebrow">Why mine Numen</p>
+          <h2 id="why-title">Work that means something</h2>
         </div>
-
-        <div class="grid g2">
-          <div class="card flat rv">
-            <div class="card-head">
-              <h3 style="margin:0;">Testnet parameters</h3>
-              <span class="chip chip-testnet">Testnet</span>
-            </div>
-            <div class="kv-list">
-              <div class="kv-row"><span class="k">Network name</span><span class="v">Numen Testnet</span></div>
-              <div class="kv-row"><span class="k">Public RPC</span><span class="v acc">https://rpc.numen-network.org</span></div>
-              <div class="kv-row"><span class="k">Local RPC</span><span class="v">http://127.0.0.1:9944</span></div>
-              <div class="kv-row"><span class="k">Chain ID</span><span class="v">320261 (0x4e305)</span></div>
-              <div class="kv-row"><span class="k">Currency symbol</span><span class="v">NMN &middot; 18 decimals</span></div>
-              <div class="kv-row"><span class="k">SS58 prefix</span><span class="v">14240</span></div>
-              <div class="kv-row"><span class="k">Dev chain ID</span><span class="v">320262 &middot; local dev only</span></div>
-            </div>
-            <div class="cmd" data-copy style="margin-top:16px;">
-              <span class="prompt" aria-hidden="true">$</span>
-              <code>curl -X POST https://rpc.numen-network.org -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'</code>
-            </div>
-            <p class="small muted">Public endpoint availability can vary during testnet. For reliable access &mdash; especially while building &mdash; run your own node.</p>
-          </div>
-
-          <div class="rv" style="--rvd:100ms;">
-            <div class="code-box" data-copy>
-              <div class="code-header"><span>MetaMask &middot; wallet_addEthereumChain</span></div>
-              <pre class="code-body"><code>window.ethereum.request({
-  method: 'wallet_addEthereumChain',
-  params: [{
-    chainId: '0x4e305',
-    chainName: 'Numen Testnet',
-    rpcUrls: ['https://rpc.numen-network.org'],
-    nativeCurrency: {
-      name: 'Numen',
-      symbol: 'NMN',
-      decimals: 18
-    }
-  }]
-});</code></pre>
-            </div>
-            <p class="small muted" style="margin-top:12px;">
-              One request adds the network to any injected wallet. Switch back with
-              <code>wallet_switchEthereumChain</code> using the same hex chain ID.
-            </p>
-          </div>
+        <div class="grid g3">
+          <article class="card flat rv">
+            <h3>Permissionless by design</h3>
+            <p>No stake, no signup, no allowlist. Point a node at the testnet chain spec and start scanning for seals.</p>
+          </article>
+          <article class="card flat rv" style="--rvd:80ms;">
+            <h3>Your keys stay offline</h3>
+            <p>Mining never needs a private key. The payout <code>AccountId</code> is embedded in block headers &mdash; generate a keypair offline and pass only the SS58 address.</p>
+          </article>
+          <article class="card flat rv" style="--rvd:160ms;">
+            <h3>Scheduled emission</h3>
+            <p>Blocks currently mint 16 NMN, halving every 12.5 million blocks (~4 years). Total mined issuance is capped at 400M NMN.</p>
+          </article>
+          <article class="card flat rv" style="--rvd:240ms;">
+            <h3>Ordinary hardware</h3>
+            <p>The work is mesh growth plus ray sampling &mdash; built for CPUs. Four cores and 4 GB of RAM make a comfortable miner.</p>
+          </article>
+          <article class="card flat rv" style="--rvd:320ms;">
+            <h3>Self-healing difficulty</h3>
+            <p>ASERT relaxes difficulty if hashpower drops and re-tightens as it returns, without multi-day stall periods.</p>
+          </article>
+          <article class="card flat rv" style="--rvd:400ms;">
+            <h3>Verifiable everything</h3>
+            <p>Every seal can be re-executed deterministically by any node. There is nothing to trust &mdash; only parameters to check.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============================ Code snippets ============================= -->
-    <section id="snippets" class="section section-alt" aria-labelledby="snip-title">
+    <!-- ============================== Setup =================================== -->
+    <section id="setup" class="section section-alt" aria-labelledby="setup-title">
       <div class="wrap">
         <div class="section-head rv">
-          <p class="eyebrow">Step 02</p>
-          <h2 id="snip-title">Connect from any stack</h2>
+          <p class="eyebrow">Setup guide</p>
+          <h2 id="setup-title">From zero to first seal</h2>
+          <p class="lead">Six steps from a clean machine to earning rewards.</p>
         </div>
-        <div class="grid g2">
-          <div class="rv">
-            <div class="code-box" data-copy>
-              <div class="code-header"><span>viem &middot; defineNumen chain</span></div>
-              <pre class="code-body"><code><span class="c-key">import</span> { defineChain } <span class="c-key">from</span> <span class="c-str">'viem'</span>
 
-<span class="c-key">export const</span> numenTestnet = <span class="c-fn">defineChain</span>({
-  id: <span class="c-num">320261</span>,
-  name: <span class="c-str">'Numen Testnet'</span>,
-  nativeCurrency: { name: <span class="c-str">'Numen'</span>, symbol: <span class="c-str">'NMN'</span>, decimals: <span class="c-num">18</span> },
-  rpcUrls: {
-    default: { http: [<span class="c-str">'https://rpc.numen-network.org'</span>] },
-  },
-})</code></pre>
-            </div>
+        <div class="mine-track rv">
+          <div class="mine-step">
+            <h3>Download the binary</h3>
+            <p>Grab a release for Linux x86_64 or macOS arm64. Each archive contains the <code>numen</code> binary and <code>testnet-raw.json</code>.</p>
           </div>
-          <div class="rv" style="--rvd:100ms;">
-            <div class="code-box" data-copy>
-              <div class="code-header"><span>ethers.js &middot; provider</span></div>
-              <pre class="code-body"><code><span class="c-key">import</span> { JsonRpcProvider } <span class="c-key">from</span> <span class="c-str">'ethers'</span>;
-
-<span class="c-key">const</span> provider = <span class="c-key">new</span> <span class="c-fn">JsonRpcProvider</span>(
-  <span class="c-str">'https://rpc.numen-network.org'</span>,
-  { name: <span class="c-str">'numen-testnet'</span>, chainId: <span class="c-num">320261</span> }
-);
-
-<span class="c-key">const</span> block = <span class="c-key">await</span> provider.<span class="c-fn">getBlock</span>(<span class="c-str">'latest'</span>);
-console.log(<span class="c-str">'Latest block:'</span>, block.number);</code></pre>
-            </div>
+          <div class="mine-step">
+            <h3>Sync a node</h3>
+            <p>Start the client against the testnet chain spec and let it catch up.</p>
+          </div>
+          <div class="mine-step">
+            <h3>Create a payout address offline</h3>
+            <p>Generate an SS58 address on an air-gapped machine (e.g. <code>subkey generate</code>). The node refuses invalid addresses &mdash; by design.</p>
+          </div>
+          <div class="mine-step">
+            <h3>Enable the miner</h3>
+            <p>Pass your payout address via <code>--miner</code>. Optionally cap threads with <code>--node-miner &lt;n&gt;</code>.</p>
+          </div>
+          <div class="mine-step">
+            <h3>Scan for seals</h3>
+            <p>The in-process scanner grows seeded meshes and sweeps surfaces until a work hash meets target.</p>
+          </div>
+          <div class="mine-step">
+            <h3>Collect rewards</h3>
+            <p>Valid seals author blocks. The reward accrues directly to your payout account.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- =========================== Deploy contracts =========================== -->
-    <section id="deploy" class="section" aria-labelledby="deploy-title">
-      <div class="wrap">
-        <div class="section-head rv">
-          <p class="eyebrow">Step 03</p>
-          <h2 id="deploy-title">Deploy with the tools you know</h2>
-        </div>
-        <div class="grid g2">
-          <div class="card flat rv">
-            <div class="card-head">
-              <h3 style="margin:0;">Foundry</h3>
-              <span class="chip chip-avail">Forge</span>
-            </div>
-            <p>Compile once, deploy anywhere &mdash; including Numen.</p>
+        <div class="grid g2 rv" style="--rvd:120ms; margin-top:30px;">
+          <div>
+            <h3 style="font-size:1rem;">The commands</h3>
             <div class="cmd" data-copy>
               <span class="prompt" aria-hidden="true">$</span>
-              <code>forge create --rpc-url https://rpc.numen-network.org --private-key &lt;KEY&gt; src/Counter.sol:Counter</code>
+              <code>tar -xzf numen-linux-x86_64.tar.gz &amp;&amp; cd numen-linux-x86_64</code>
+            </div>
+            <div class="cmd" data-copy>
+              <span class="prompt" aria-hidden="true">$</span>
+              <code>./numen --chain testnet-raw.json</code>
+            </div>
+            <div class="cmd" data-copy>
+              <span class="prompt" aria-hidden="true">$</span>
+              <code>./numen --chain testnet-raw.json --miner &lt;YOUR_ADDRESS&gt; --node-miner &lt;THREADS&gt;</code>
             </div>
           </div>
-          <div class="card flat rv" style="--rvd:100ms;">
-            <div class="card-head">
-              <h3 style="margin:0;">Hardhat</h3>
-              <span class="chip chip-avail">hardhat.config.js</span>
+          <div class="card flat">
+            <h3>Minimum requirements</h3>
+            <div class="kv-list">
+              <div class="kv-row"><span class="k">CPU (minimum)</span><span class="v">1 core</span></div>
+              <div class="kv-row"><span class="k">RAM (minimum)</span><span class="v">1 GB</span></div>
+              <div class="kv-row"><span class="k">Disk (minimum)</span><span class="v">5 GB</span></div>
+              <div class="kv-row"><span class="k">Recommended</span><span class="v acc">4 cores &middot; 4 GB &middot; 20 GB</span></div>
+              <div class="kv-row"><span class="k">Platforms</span><span class="v">Linux x86_64 &middot; macOS arm64</span></div>
+              <div class="kv-row"><span class="k">Disk growth</span><span class="v">Tracks chain size</span></div>
             </div>
-            <p>Add Numen as a network entry:</p>
-            <div class="code-box" data-copy style="margin-top:8px;">
-              <div class="code-header"><span>networks</span></div>
-              <pre class="code-body"><code>networks: {
-  numen: {
-    url: "https://rpc.numen-network.org",
-    chainId: 320261,
-    accounts: [process.env.PRIVATE_KEY]
-  }
-}</code></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== Precompiles ============================= -->
-    <section id="precompiles" class="section section-alt" aria-labelledby="pre-title">
-      <div class="wrap">
-        <div class="section-head rv">
-          <p class="eyebrow">Built in</p>
-          <h2 id="pre-title">Native precompiles</h2>
-          <p class="lead">
-            Common primitives are available at native addresses &mdash; no audit surface of
-            your own required.
-          </p>
-        </div>
-        <div class="grid g2">
-          <div class="card flat rv">
-            <div class="card-head">
-              <h3 style="margin:0;">ERC-20 balances precompile</h3>
-              <span class="chip chip-live">Live</span>
-            </div>
-            <p>The native NMN balance is exposed through an ERC-20 compatible precompile. Standard token interfaces work against the base asset out of the box.</p>
-            <div class="card-foot"><a class="link-arrow" href="https://github.com/numen-network/numen/tree/master/precompiles/balances-erc20" target="_blank" rel="noopener">View source
+            <p class="small muted">Building from source? The repo ships a one-command Ubuntu setup guide.</p>
+            <div class="card-foot"><a class="link-arrow" href="https://github.com/numen-network/numen/blob/master/docs/how-to-build.md" target="_blank" rel="noopener">Build from source
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></div>
           </div>
-          <div class="card flat rv" style="--rvd:100ms;">
-            <div class="card-head">
-              <h3 style="margin:0;">EIP-2612 permit support</h3>
-              <span class="chip chip-live">Live</span>
-            </div>
-            <p>Gasless approvals via signed permits are supported by the balances precompile &mdash; build flows that don&rsquo;t need a separate approve transaction.</p>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================== Mining RPC ============================== -->
-    <section id="rpc" class="section" aria-labelledby="rpc-title">
+    <!-- =========================== External miners ============================ -->
+    <section id="external" class="section" aria-labelledby="ext-title">
       <div class="wrap">
         <div class="section-head rv">
-          <p class="eyebrow">Mining protocol API</p>
-          <h2 id="rpc-title">PoScan mining RPC</h2>
+          <p class="eyebrow">External miners</p>
+          <h2 id="ext-title">Drive the node over RPC</h2>
           <p class="lead">
-            External mining rigs talk to full nodes over standard JSON-RPC. Full setup
-            guide lives on the mining page.
+            Drop <code>--node-miner</code> to leave authoring entirely to external rigs.
+            They pull tasks, scan independently, and return seals over standard JSON-RPC.
           </p>
         </div>
         <div class="grid g3">
           <article class="card rv">
             <span class="chip chip-live">RPC method</span>
             <h3 style="margin-top:14px;"><code>mining_getTask</code></h3>
-            <p>Fetch the current header hash, difficulty target and seed derivation inputs.</p>
+            <p>Fetch the current task: header hash, difficulty target and seed derivation inputs for this round.</p>
           </article>
           <article class="card rv" style="--rvd:80ms;">
             <span class="chip chip-live">RPC method</span>
             <h3 style="margin-top:14px;"><code>mining_subscribeTask</code></h3>
-            <p>Subscribe to task pushes &mdash; roughly one fresh task per second.</p>
+            <p>Subscribe and receive a fresh task push roughly every second &mdash; no polling needed.</p>
           </article>
           <article class="card rv" style="--rvd:160ms;">
             <span class="chip chip-live">RPC method</span>
             <h3 style="margin-top:14px;"><code>mining_submitSeal</code></h3>
-            <p>Return a valid seal; the node verifies before propagating.</p>
+            <p>Submit a valid seal. The node verifies it locally before propagating the block.</p>
           </article>
         </div>
         <div class="grid g2 rv" style="--rvd:120ms; margin-top:26px; align-items:start;">
@@ -322,63 +259,47 @@ console.log(<span class="c-str">'Latest block:'</span>, block.number);</code></p
     "id": 1
   }'</code></pre>
           </div>
-          <div>
-            <p class="small muted" style="margin-bottom:16px;">
-              Mining RPC methods are served on the node&rsquo;s local interface.
-              Point rigs at your own endpoint &mdash; never expose mining RPC publicly.
-            </p>
-            <a class="btn btn-secondary" href="mining.html#external">Full mining guide
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
+          <div class="card flat">
+            <h3>How the loop fits together</h3>
+            <ol style="margin:0; padding-left:18px; color:var(--body-c); font-size:.92rem; display:flex; flex-direction:column; gap:8px;">
+              <li>Rig subscribes to tasks on its own full node.</li>
+              <li>Each task seeds a fresh asteroid mesh + target.</li>
+              <li>Rig scans until <code>hash(features) ≤ target</code>.</li>
+              <li>Seal goes back via RPC; node validates and authors.</li>
+              <li>New round begins against the next header.</li>
+            </ol>
+            <p class="small muted" style="margin-top:10px;">A browser-sized approximation of this exact loop runs on the homepage simulator.</p>
+            <div class="card-foot"><a class="link-arrow" href="index.html#simulate">Open the simulator
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =============================== Run node ================================ -->
-    <section id="node" class="section section-alt" aria-labelledby="node-title">
+    <!-- ============================= Security ================================= -->
+    <section id="security" class="section section-alt" aria-labelledby="sec-title">
       <div class="wrap">
-        <div class="problem-grid">
-          <div class="rv">
-            <p class="eyebrow">Local development</p>
-            <h2 id="node-title">Run your own node</h2>
-            <p class="lead" style="margin-top:14px;">
-              A synced node is the most reliable way to develop against Numen &mdash;
-              no shared-endpoint rate limits, full control over your testing.
-            </p>
-            <div class="cta-row" style="margin-top:20px;">
-              <a class="btn btn-secondary" href="https://github.com/numen-network/numen/blob/master/docs/how-to-build.md" target="_blank" rel="noopener">Build from source</a>
-              <a class="btn btn-ghost" href="https://github.com/numen-network/numen/releases" target="_blank" rel="noopener">Download binary</a>
-            </div>
+        <div class="section-head rv">
+          <p class="eyebrow">Operate safely</p>
+          <h2 id="sec-title">Security notes</h2>
+        </div>
+        <div class="grid g2">
+          <div class="card accent flat rv">
+            <h3>Keys never touch miners</h3>
+            <p>Generate the payout keypair offline (<code>subkey generate</code>) and configure only the public SS58 address on the mining node. Compromise of a rig costs you hardware time, not funds.</p>
           </div>
-          <div class="rv" style="--rvd:120ms;">
-            <div class="cmd" data-copy>
-              <span class="prompt" aria-hidden="true">$</span>
-              <code>tar -xzf numen-linux-x86_64.tar.gz &amp;&amp; cd numen-linux-x86_64</code>
-            </div>
-            <div class="cmd" data-copy>
-              <span class="prompt" aria-hidden="true">$</span>
-              <code>./numen --chain testnet-raw.json</code>
-            </div>
-            <div class="cmd" data-copy>
-              <span class="prompt" aria-hidden="true">$</span>
-              <code>./numen --chain testnet-raw.json --state-pruning archive</code>
-            </div>
-            <p class="small muted">Archive mode keeps every historical state. Minimum footprint: 1 core / 1 GB / 5 GB disk.</p>
+          <div class="card flat rv" style="--rvd:100ms;">
+            <h3>Mining RPC stays local</h3>
+            <p>Mining endpoints are served on your node&rsquo;s local interface. Never expose them publicly &mdash; point external rigs at your own endpoint only.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Final CTA -->
-    <section class="section" aria-labelledby="dev-cta">
-      <div class="wrap">
-        <div class="cta-band rv">
-          <h2 id="dev-cta">Ship something real.</h2>
-          <p class="lead">Identity-aware applications start with one deployed contract.</p>
+        <div class="cta-band rv" style="--rvd:140ms; margin-top:40px;">
+          <h2>Ready when you are.</h2>
+          <p class="lead">A modest machine, a payout address, and one command line away from participating in consensus.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#config">Configure the network</a>
-            <a class="btn btn-secondary" href="https://github.com/numen-network/numen" target="_blank" rel="noopener">Explore the source</a>
+            <a class="btn btn-primary" href="https://github.com/numen-network/numen/releases" target="_blank" rel="noopener">Get the latest release</a>
+            <a class="btn btn-secondary" href="https://discord.gg/WKmyTfmaa" target="_blank" rel="noopener">Ask in Discord</a>
           </div>
         </div>
       </div>

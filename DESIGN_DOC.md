@@ -1,59 +1,75 @@
-# Numen Network — Design Strategy & Protocol Website Redesign
+# Numen Network — Website Design System & Strategy (v2)
 
-## Executive Summary
-This design document defines the architectural, visual, content, and interactive strategy for the complete redesign of the official **Numen Network** protocol website (`numen-network.org`).
+This document records the design strategy for `numen-network.org`, the official
+website of the **Numen Network Proof-of-Scan Layer 1** blockchain (built with the
+Polkadot SDK, MIT-licensed).
 
-Numen Network is a **Proof-of-Scan Layer 1 blockchain** uniting Proof-of-Work block proposal with GRANDPA BFT finality, full EVM compatibility (Chain ID `32026`), and 3D spectral surface scanning via **Spectral3D**.
-
-### Core Positioning & Narrative Strategy
-> **Numen turns scanning into proof.**
-> **Proof becomes consensus.**
-> **Consensus becomes a ledger for things.**
+> Positioning: **Numen turns scanning into proof — and gives physical objects
+> verifiable digital identities.**
 
 ---
 
-## 1. Audit of Legacy Website
+## 1. Architecture
 
-### Current State Assessment
-- **Strengths**: Lightweight architecture, zero dependencies, responsive dark/light mode, custom Canvas 3D rendering for procedural asteroid meshes.
-- **Weaknesses**: Limited page depth, monolithic layout with sparse developer resources, lack of interactive protocol walkthroughs, minimal search metadata, and missing structured developer Hub.
-- **UX & Information Gaps**: Developers needed direct code examples, copyable RPC configurations, interactive Proof-of-Scan pipeline demonstrations, and clear status badges distinguishing active testnet features from upcoming mainnet milestones.
+Pure static HTML/CSS/JS deployed to GitHub Pages. No build step, zero runtime
+dependencies beyond two font families (Space Grotesk + Inter display/body,
+IBM Plex Mono data) served by Google Fonts.
 
----
+| File | Role |
+| --- | --- |
+| `style.css` | Complete design-token system + all components |
+| `main.js` | Shared behavior: theme, nav/drawer, reveals, copy buttons, scrollspy, tabs engine, honest live-data layer (`NetworkFeed`) |
+| `asteroid.js` | Ambient background canvas (deterministic icosphere body) |
+| `hero-scan.js` | Hero instrument: object → scan → identity → sealed loop |
+| `poscan-sim.js` | Interactive nonce → mesh → hash work-function simulator |
+| `index.html` | Full narrative homepage |
+| `network.html` | Technology deep-dive (PoScan, consensus, ASERT, Spectral3D, governance) |
+| `mining.html` | Dedicated mining experience |
+| `developers.html` | EVM integration hub (chain 320261 testnet / 320262 devnet / 32026 reserved mainnet) |
+| `ecosystem.html` | Verified channels + infrastructure status |
+| `docs.html` | Spec sheet, FAQ (+FAQPage JSON-LD), primary sources |
 
-## 2. Redesign Objectives & Deliverables
+## 2. Design language — “instrument grade”
 
-1. **Protocol Authenticity**: Accurate representation of PoScan mechanics (`nonce → deterministic 3D geometry → 4,096 spectral samples → 23D quantization → block seal`).
-2. **Developer First**: Direct integration with Ethereum tooling (MetaMask, Hardhat, Foundry, ethers.js, viem, wagmi, Remix) and standard JSON-RPC endpoints.
-3. **Restrained Visual Identity**: Scientific, precise, deep-space computational visual system avoiding crypto clichés (no cartoon mascots, neon speculative gradients, or fake yield claims).
-4. **Strict Protocol Truth**: Unverified or future features use standardized status badges:
-   - `LIVE` — verified and currently operational
-   - `AVAILABLE` — verified functionality/documentation exists
-   - `TESTNET` — explicitly testnet
-   - `IN DEVELOPMENT` — confirmed but unfinished
-   - `UPCOMING` — planned
-   - `INFORMATION TO BE CONFIRMED` — cannot currently verify
+- Dark cinematic base (`#06070b`), layered surfaces, hairline borders.
+- Single cyan accent (`#29d8f0`) used sparingly for scan/data/interaction.
+- Space Grotesk display, Inter body, IBM Plex Mono for labels/hashes/specs.
+- Motifs: viewfinder corner brackets, dotted grids, sweep lines, mono microcopy.
+- Light theme supported via `[data-theme=light]` token overrides.
+- All tokens live in `:root`; components consume only variables.
 
----
+## 3. Status badge system (accuracy contract)
 
-## 3. Site Navigation & Information Architecture
+| Chip | Meaning |
+| --- | --- |
+| `LIVE` | Verified in the open-source runtime / releases today |
+| `AVAILABLE` | Documented capability ready to use |
+| `TESTNET` | Explicitly testnet-scoped |
+| `IN DEVELOPMENT` | Confirmed but unfinished (e.g. explorer, mainnet prep) |
+| `PLANNED` | Roadmap only (e.g. Spectral3D registry, pool protocol) |
+| `SIMULATION · ILLUSTRATIVE` | Browser approximation of on-chain mechanics |
 
-- **Primary Navigation**:
-  - `Protocol` (PoScan, Hybrid Consensus, Spectral3D)
-  - `Developers` (RPC, Smart Contracts, Quickstart, SDKs)
-  - `Network` (Stats, Mining, Node Setup)
-  - `Ecosystem` (Tooling, Community, Applications)
-  - `Docs` (Technical Specification & Guides)
-- **Primary CTA**: `Start Building` / `Explore Network`
+**Accuracy rule:** no invented partnerships, stats, TPS, audits, listings or
+dates. Live-data cells render `—` until a real endpoint is configured via
+`window.NUMEN_LIVE_RPC = ["https://…"]`.
 
----
+## 4. Verified protocol facts used across copy
 
-## 4. Documentation Strategy & Matrix
-All strategy guidelines are detailed across specialized repository documents:
-- `docs/information-architecture.md`: Full site topology and route mappings.
-- `docs/brand-system.md`: Typography, color tokens, visual geometry, and status badge system.
-- `docs/page-specs.md`: Detailed component layout and copy specifications for all pages.
-- `docs/seo-geo.md`: Search engine and AI engine Optimization (GEO) strategy, structured metadata schema.
-- `docs/accessibility.md`: WCAG 2.2 AA compliance standards, keyboard navigation, and aria specifications.
-- `docs/performance.md`: Core Web Vitals targets, WebGL/Canvas rendering optimization.
-- `docs/technical-architecture.md`: Modular CSS/JS architecture, vanilla HTML5 structure.
+Block target 10 s · ASERT halflife 1800 s · GRANDPA BFT finality · reward 16 NMN,
+halving every 12,500,000 blocks (~4 y) · mined-issuance cap 400 M NMN · PoScan:
+4,096 samples × 23 quantized dims, domain `poscan-v1`, pinned subdivision ·
+SS58 prefix 14240 · mining needs no private key (payout SS58 in header;
+`mining_getTask` / `mining_subscribeTask` / `mining_submitSeal`) · OpenGov
+referenda + conviction voting + treasury · Prime authority limited to runtime
+upgrades and vetoes · ERC-20 balances precompile with EIP-2612 permit · v0.2.0
+releases (Linux x86_64, macOS arm64).
+
+## 5. Motion & accessibility
+
+- Scroll reveals gated behind `html.js` so content is never hidden without JS.
+- Every animation respects `prefers-reduced-motion` (static frames rendered).
+- Canvas loops pause when offscreen or when the tab is hidden.
+- ARIA tabs pattern with roving tabindex + arrow keys; auto-advance stops on
+  first manual interaction.
+- Skip link, focus-visible outlines, aria-live announcements for copy actions,
+  semantic landmarks and heading order throughout.

@@ -3,24 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Documentation & Whitepaper · Numen Network</title>
-<meta name="description" content="Technical whitepaper, protocol specification table, node operator guides, and frequently asked questions for the Numen Network Proof-of-Scan Layer 1 blockchain.">
+<title>Documentation — Specs &amp; FAQ · Numen Network</title>
+<meta name="description" content="Numen Network documentation: verified protocol specifications, getting-started paths for nodes, miners and developers, and answers to common questions about Proof-of-Scan.">
+<link rel="canonical" href="https://numen-network.org/docs.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Documentation & Whitepaper · Numen Network">
-<meta property="og:description" content="Technical whitepaper, protocol specification table, node operator guides, and FAQs for Numen Proof-of-Scan Layer 1.">
+<meta property="og:site_name" content="Numen Network">
+<meta property="og:title" content="Documentation — Specs &amp; FAQ · Numen Network">
+<meta property="og:description" content="Verified protocol specs, getting-started guides and FAQ for the Numen Proof-of-Scan Layer 1.">
 <meta property="og:url" content="https://numen-network.org/docs.html">
 <meta property="og:image" content="https://numen-network.org/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@numen_network">
-<meta name="theme-color" content="#0d0e12">
+<meta name="twitter:title" content="Documentation · Numen Network">
+<meta name="twitter:description" content="Protocol specs and FAQ for Numen Proof-of-Scan Layer 1.">
+<meta name="twitter:image" content="https://numen-network.org/og.png">
+<meta name="theme-color" content="#06070b">
 <meta name="theme-color" content="#fafbfd" media="(prefers-color-scheme: light)">
-<link rel="canonical" href="https://numen-network.org/docs.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%2322d3ee'/%3E%3Cpath d='M4.3 12V4h1.9l3.6 5V4h1.9v8H9.8L6.2 7v5z' fill='%230d0e12'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%2329d8f0'/%3E%3Cpath d='M4.2 12V4h2l3.7 5.2V4h1.9v8H9.8L6.1 6.9V12z' fill='%23060b12'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script>(function(){try{var t=localStorage.getItem('numen-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t==='light')document.documentElement.dataset.theme='light';}catch(e){}})();</script>
+<script src="asteroid.js" defer></script>
 <script src="main.js" defer></script>
 
 <script type="application/ld+json">
@@ -33,39 +37,23 @@
       "name": "What is Numen Network?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Numen Network is a Proof-of-Scan Layer 1 blockchain that combines permissionless PoW block proposal, GRANDPA BFT finality, full EVM compatibility on Chain ID 32026, and Spectral3D 3D geometry hashing."
+        "text": "Numen Network is a Proof-of-Scan Layer 1 blockchain built with the Polkadot SDK. It combines permissionless PoW block proposal, GRANDPA BFT finality, full EVM compatibility on testnet chain ID 320261, and Spectral3D geometry-based identity."
       }
     },
     {
       "@type": "Question",
-      "name": "What is Proof-of-Scan (PoScan)?",
+      "name": "What is Proof of Scan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Proof-of-Scan is Numen's proof-of-work mechanism. Each nonce deterministically seeds a 3D asteroid mesh; 4,096 surface rays are sampled into a 23-dimension spectral signature whose hash must meet the network difficulty target to seal a block."
+        "text": "Proof of Scan is Numen's proof-of-work mechanism. Each nonce deterministically seeds a 3D asteroid mesh; its surface is sampled with 4,096 rays into a 23-dimension spectral signature whose hash must meet the network difficulty target to seal a block."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the Numen EVM Chain ID?",
+      "name": "What is the Numen EVM chain ID?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Numen EVM Chain ID is 32026 (0x7D1A). The network exposes standard Ethereum JSON-RPC, so MetaMask, Foundry, Hardhat, ethers.js, viem, and wagmi work without modification."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How fast are Numen blocks and finality?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Numen targets one PoW block proposal every 10 seconds. GRANDPA BFT validator voting finalizes blocks irreversibly in under 30 seconds."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the block reward on Numen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Miners receive 16 NMN per block. The reward halves every 12.5 million blocks, approximately every four years."
+        "text": "The Numen Testnet EVM chain ID is 320261 (0x4e305). Devnet uses 320262, and 32026 is reserved for mainnet. The network exposes standard Ethereum JSON-RPC, so MetaMask, Foundry, Hardhat, ethers.js, viem and wagmi work without modification."
       }
     },
     {
@@ -73,15 +61,23 @@
       "name": "How does Numen adjust mining difficulty?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Numen uses ASERT (Absolutely Scheduled Exponential Target) difficulty adjustment anchored to genesis. The formula next_target = anchor_target x 2^((dt - 10s x dh) / 1800s) removes recursive drift and self-heals after hashpower shocks."
+        "text": "Numen uses ASERT (Absolutely Scheduled Exponentially Rising Targets) difficulty anchored to genesis, with a 30-minute half-life. Each block's target is computed independently, eliminating cumulative drift and letting difficulty decay naturally during outages."
       }
     },
     {
       "@type": "Question",
-      "name": "Is Numen Network live on mainnet?",
+      "name": "What are the mining rewards?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Numen is currently a decentralized testnet at version v0.2.0 with no sudo keys. Mainnet launch, including validator bootstrap and public RPC cluster deployment, is in development."
+        "text": "Blocks currently mint 16 NMN to the winning miner. The reward halves every 12,500,000 blocks (roughly four years), capping total mined issuance at 400 million NMN. Mining requires no private key — only an SS58 payout address embedded in block headers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Numen live on mainnet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet. Numen currently runs a decentralized public testnet (release v0.2.0) where the sudo key has been replaced by Prime — a restricted authority limited to runtime upgrades and referenda/treasury vetoes. Mainnet preparation, including validator bootstrap and public RPC, is in development."
       }
     },
     {
@@ -89,7 +85,15 @@
       "name": "What is Spectral3D?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Spectral3D is the library behind Proof-of-Scan that converts rigid 3D geometry into stable cryptographic fingerprints. Re-scanning a physical object under any scanner or orientation produces the same HASH ID."
+        "text": "Spectral3D is the open-source library behind Proof of Scan. It converts rigid 3D geometry into rotation-invariant cryptographic fingerprints — re-scanning the same object from any pose produces the same identity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can physical objects be registered on-chain today?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On-chain registration of physical-object identities is planned but not yet available. Today, Spectral3D identities exist within the mining work function and the open-source library; the registry that lets applications own and track them is on the roadmap."
       }
     }
   ]
@@ -104,268 +108,329 @@
 
 <div class="page">
 
-  <!-- Navigation -->
-  <nav class="nav" aria-label="Main Navigation">
-    <a class="logo" href="index.html">
-      <div class="logo-mark" aria-hidden="true"></div>
-      <span class="logo-name">NUMEN NETWORK</span>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="logo" href="index.html" aria-label="Numen Network home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-name">NUMEN<b>&middot;</b>NETWORK</span>
     </a>
-
     <div class="nav-links">
       <a class="nav-link" href="index.html">Overview</a>
-      <a class="nav-link" href="network.html">Protocol</a>
+      <a class="nav-link" href="network.html">Technology</a>
+      <a class="nav-link" href="mining.html">Mining</a>
       <a class="nav-link" href="developers.html">Developers</a>
       <a class="nav-link" href="ecosystem.html">Ecosystem</a>
-      <a class="nav-link active" href="docs.html">Docs</a>
+      <a class="nav-link active" href="docs.html" aria-current="page">Docs</a>
     </div>
-
     <div class="nav-right">
-      <a class="btn-nav-cta" href="developers.html">Start Building</a>
-      <button class="theme-toggle" type="button" aria-label="Toggle theme">
-        <svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
-        <svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <a class="icon-btn github-btn" href="https://github.com/numen-network/numen" target="_blank" rel="noopener" aria-label="Numen on GitHub">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle color theme">
+        <svg class="ic-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
+        <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
-      <button class="nav-burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <a class="btn btn-primary btn-nav" href="#specs">Spec Sheet</a>
+      <button class="icon-btn nav-burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <div id="mobile-menu" class="mobile-menu" hidden>
-    <a href="index.html">Overview</a>
-    <a href="network.html">Protocol</a>
-    <a href="developers.html">Developers</a>
-    <a href="ecosystem.html">Ecosystem</a>
-    <a class="active" href="docs.html">Docs</a>
-    <a href="#spec">Protocol Specification →</a>
+  <div id="mobile-menu" class="mobile-menu">
+    <nav class="mm-links" aria-label="Mobile navigation">
+      <a href="index.html">Overview<span class="mm-n">01</span></a>
+      <a href="network.html">Technology<span class="mm-n">02</span></a>
+      <a href="mining.html">Mining<span class="mm-n">03</span></a>
+      <a href="developers.html">Developers<span class="mm-n">04</span></a>
+      <a href="ecosystem.html">Ecosystem<span class="mm-n">05</span></a>
+      <a class="active" href="docs.html">Docs<span class="mm-n">06</span></a>
+    </nav>
+    <div class="mm-foot">
+      <a class="btn btn-primary" href="#specs">Spec Sheet</a>
+    </div>
   </div>
 
   <main id="main">
 
-    <!-- Header -->
-    <header class="hero" style="min-height:auto; padding:130px 0 50px;">
+    <header class="page-hero">
       <div class="wrap">
-        <div class="kicker">Documentation & Specification</div>
-        <h1>Protocol Documentation</h1>
-        <p class="hero-sub">
-          Technical specifications, whitepaper summaries, operational guides, and verified answers about Numen Proof-of-Scan Layer 1.
+        <p class="crumb rv"><a href="index.html">Overview</a><span class="sep">/</span>Docs</p>
+        <h1 class="rv" style="--rvd:60ms;">Documentation.</h1>
+        <p class="hero-sub rv" style="--rvd:140ms;">
+          Verified protocol parameters, three ways to get started, and straight
+          answers to common questions.
         </p>
       </div>
     </header>
 
-    <!-- Sticky Subnav -->
-    <nav class="subnav" aria-label="Page Sections">
+    <nav class="subnav" aria-label="Page sections">
       <div class="subnav-inner">
-        <span class="subnav-label">On This Page</span>
-        <a href="#spec">Specification</a>
-        <a href="#guides">Guides & Papers</a>
+        <span class="subnav-label">On this page</span>
+        <a href="#start">Getting started</a>
+        <a href="#specs">Spec sheet</a>
         <a href="#faq">FAQ</a>
+        <a href="#resources">Resources</a>
       </div>
     </nav>
 
-    <!-- Protocol Specification Table -->
-    <section id="spec" class="section-padding">
+    <!-- =========================== Getting started ============================ -->
+    <section id="start" class="section" aria-labelledby="start-title">
       <div class="wrap">
-        <div class="eyebrow">Reference</div>
-        <h2>Protocol Specification</h2>
-        <p class="lead">Consolidated, verified protocol parameters for the Numen testnet.</p>
-
-        <div class="card" style="overflow-x:auto;">
-          <table class="spec-table">
-            <tbody>
-              <tr><th scope="row">Network Status</th><td><span class="badge badge-testnet">TESTNET v0.2.0</span></td></tr>
-              <tr><th scope="row">EVM Chain ID</th><td>32026 (0x7D1A)</td></tr>
-              <tr><th scope="row">Block Time Target</th><td>10.0 seconds (ASERT anchor-based)</td></tr>
-              <tr><th scope="row">Finality</th><td>GRANDPA BFT, ≤ 30 seconds, 2/3+ validator threshold</td></tr>
-              <tr><th scope="row">Block Reward</th><td>16 NMN, halving every 12.5M blocks (~4 years)</td></tr>
-              <tr><th scope="row">Difficulty Engine</th><td>ASERT · half-life 1800s, anchored to genesis</td></tr>
-              <tr><th scope="row">PoScan Work Function</th><td>Deterministic mesh → 4,096 ray samples → 23D spectral quantization → 256-bit seal hash</td></tr>
-              <tr><th scope="row">Validator Set Cap</th><td>Up to 1,000 active nodes, session rotation every 60 blocks</td></tr>
-              <tr><th scope="row">Native Currency</th><td>NMN, 18 decimals</td></tr>
-              <tr><th scope="row">Governance Keys</th><td>No sudo key — fully permissionless protocol</td></tr>
-              <tr><th scope="row">Public RPC (Testnet)</th><td><a href="https://rpc.numen-network.org" style="color:var(--accent);">https://rpc.numen-network.org</a></td></tr>
-            </tbody>
-          </table>
+        <div class="section-head rv">
+          <p class="eyebrow">Getting started</p>
+          <h2 id="start-title">Pick your path</h2>
+        </div>
+        <div class="grid g3">
+          <article class="card rv">
+            <span class="chip chip-avail">Run</span>
+            <h3 style="margin-top:14px;">Operate a node</h3>
+            <p>Download a release binary, sync the testnet, optionally keep full history as an archive node.</p>
+            <div class="card-foot"><a class="link-arrow" href="mining.html#setup">Node setup guide
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </article>
+          <article class="card rv" style="--rvd:80ms;">
+            <span class="chip chip-avail">Mine</span>
+            <h3 style="margin-top:14px;">Join consensus</h3>
+            <p>Configure a payout address and scan for seals &mdash; CPU-friendly work, keys stay offline.</p>
+            <div class="card-foot"><a class="link-arrow" href="mining.html">Mining guide
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </article>
+          <article class="card rv" style="--rvd:160ms;">
+            <span class="chip chip-avail">Build</span>
+            <h3 style="margin-top:14px;">Deploy contracts</h3>
+            <p>Point Foundry, Hardhat or your wallet at chain 320261 and ship standard Solidity.</p>
+            <div class="card-foot"><a class="link-arrow" href="developers.html">Developer hub
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Guides & Papers -->
-    <section id="guides" class="section-padding" style="background:var(--bg2);">
+    <!-- ============================== Spec sheet =============================== -->
+    <section id="specs" class="section section-alt" aria-labelledby="specs-title">
       <div class="wrap">
-        <div class="eyebrow">Primary Sources</div>
-        <h2>Whitepapers & Guides</h2>
+        <div class="section-head rv">
+          <p class="eyebrow">Specification</p>
+          <h2 id="specs-title">Protocol parameters</h2>
+          <p class="lead">
+            Values below come from the runtime source and release artifacts
+            (<code>testnet-raw.json</code>, v0.2.0). Where something isn&rsquo;t fixed yet,
+            we say so.
+          </p>
+        </div>
 
-        <div class="grid-3">
-
-          <div class="card">
-            <span class="badge badge-avail">WHITEPAPER SUMMARY</span>
-            <h3>Proof-of-Scan Specification</h3>
-            <p>The complete mathematical derivation of deterministic 3D geometry recasting, 4,096 surface ray sampling, 23-dimension spectral quantization, and seal target calculations.</p>
-            <a class="item-link" href="network.html#poscan">Pipeline Breakdown →</a>
+        <div class="spec-board rv">
+          <div class="spec-cell">
+            <span class="k">Consensus</span>
+            <span class="v" style="font-size:clamp(1.2rem,2vw,1.55rem);">PoScan + GRANDPA</span>
+            <p class="n">PoW proposals finalized by BFT voting.</p>
           </div>
-
-          <div class="card">
-            <span class="badge badge-avail">NODE OPERATOR</span>
-            <h3>Node Operator Guide</h3>
-            <p>Guide for spinning up full archive RPC nodes, configuring chain specs, setting up service daemons, and connecting telemetry endpoints.</p>
-            <a class="item-link" href="network.html#mine">Node Quickstart →</a>
+          <div class="spec-cell">
+            <span class="k">Runtime</span>
+            <span class="v" style="font-size:clamp(1.2rem,2vw,1.55rem);">Polkadot SDK</span>
+            <p class="n">Rust implementation &middot; stable-2603 branch.</p>
           </div>
-
-          <div class="card">
-            <span class="badge badge-avail">DEVELOPER REFERENCE</span>
-            <h3>EVM Integration Reference</h3>
-            <p>Chain configuration for MetaMask, viem, wagmi, ethers.js, Foundry, and Hardhat, plus the external mining RPC method reference.</p>
-            <a class="item-link" href="developers.html">Developer Hub →</a>
+          <div class="spec-cell">
+            <span class="k">Smart contracts</span>
+            <span class="v" style="font-size:clamp(1.2rem,2vw,1.55rem);">EVM compatible</span>
+            <p class="n">Standard JSON-RPC &middot; Frontier-style execution.</p>
           </div>
-
-          <div class="card">
-            <span class="badge badge-live">SOURCE CODE</span>
-            <h3>Rust Implementation</h3>
-            <p>The open-source Rust node implementation, chain specification files, and release binaries are maintained in the official GitHub repository.</p>
-            <a class="item-link" href="https://github.com/numen-network/numen#readme" target="_blank" rel="noopener">Read on GitHub →</a>
+          <div class="spec-cell">
+            <span class="k">Block time target</span>
+            <span class="v">10 <span class="unit">s</span></span>
+            <p class="n">ASERT-enforced schedule.</p>
           </div>
-
-          <div class="card">
-            <span class="badge badge-avail">CONSENSUS DETAIL</span>
-            <h3>Hybrid Consensus Model</h3>
-            <p>How permissionless PoW block proposal couples with bounded GRANDPA BFT voting to decouple production from irreversibility.</p>
-            <a class="item-link" href="network.html#consensus">Consensus Architecture →</a>
+          <div class="spec-cell">
+            <span class="k">Difficulty halflife</span>
+            <span class="v">1800 <span class="unit">s</span></span>
+            <p class="n">Anchor-based &middot; self-healing after outages.</p>
           </div>
-
-          <div class="card">
-            <span class="badge badge-upcoming">RESEARCH</span>
-            <h3>Spectral3D Research</h3>
-            <p>Ongoing research into geometric fingerprinting for physical object identity, zero-knowledge spatial proofs, and on-chain registries.</p>
-            <a class="item-link" href="network.html#vision">Spectral3D Overview →</a>
+          <div class="spec-cell">
+            <span class="k">PoScan samples</span>
+            <span class="v">4096</span>
+            <p class="n">Surface rays per mining attempt.</p>
           </div>
-
+          <div class="spec-cell">
+            <span class="k">Spectral dimensions</span>
+            <span class="v">23</span>
+            <p class="n">Quantized features per proof.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Work domain</span>
+            <span class="v" style="font-size:clamp(1.2rem,2vw,1.55rem);">poscan-v1</span>
+            <p class="n">Parameter changes bump the separator.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Initial reward</span>
+            <span class="v">16 <span class="unit">NMN</span></span>
+            <p class="n">First halving period.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Halving interval</span>
+            <span class="v">12.5M</span>
+            <p class="n">Blocks &middot; ~4 years at target pace.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Mined-issuance cap</span>
+            <span class="v">400<span class="unit">M NMN</span></span>
+            <p class="n">Geometric sum across halvings.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Token decimals</span>
+            <span class="v">18</span>
+            <p class="n">Native unit NMN.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Chain IDs</span>
+            <span class="v" style="font-size:clamp(1.05rem,1.8vw,1.35rem);">320261 / 320262 / 32026</span>
+            <p class="n">Testnet / devnet / reserved mainnet.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">SS58 prefix</span>
+            <span class="v">14240</span>
+            <p class="n">Accounts and mining payouts.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Governance</span>
+            <span class="v" style="font-size:clamp(1.2rem,2vw,1.55rem);">OpenGov</span>
+            <p class="n">Referenda &middot; conviction voting &middot; treasury.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">License</span>
+            <span class="v" style="font-size:clamp(1.2rem,2vw,1.55rem);">MIT</span>
+            <p class="n">Entire node codebase.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section-padding">
+    <!-- ================================= FAQ =================================== -->
+    <section id="faq" class="section" aria-labelledby="faq-title">
       <div class="wrap">
-        <div class="eyebrow">Verified Answers</div>
-        <h2>Frequently Asked Questions</h2>
-        <p class="lead">Concise, protocol-accurate answers. For deeper detail, follow the linked sections.</p>
+        <div class="section-head rv">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Common questions</h2>
+        </div>
 
-        <div class="faq-list">
+        <div class="faq-list rv" style="max-width:820px;">
           <details class="faq-item">
             <summary>What is Numen Network?</summary>
-            <div class="faq-body">
-              Numen Network is a Proof-of-Scan Layer 1 blockchain combining permissionless PoW block proposal, GRANDPA BFT finality, full EVM compatibility on Chain ID 32026, and Spectral3D 3D geometry hashing. Its thesis: scanning becomes proof, proof becomes consensus, consensus becomes a ledger for things.
-            </div>
+            <div class="faq-body">A Proof-of-Scan Layer 1 blockchain built with the Polkadot SDK. It combines permissionless PoW block proposal, GRANDPA BFT finality, full EVM compatibility on testnet chain ID 320261, and Spectral3D geometry-based identity.</div>
           </details>
-
           <details class="faq-item">
-            <summary>What is Proof-of-Scan (PoScan)?</summary>
-            <div class="faq-body">
-              PoScan replaces arbitrary hash grinding with deterministic geometry. A nonce seeds a 3D asteroid mesh; 4,096 surface rays are sampled into a 23-dimension spectral signature. If the signature's hash meets the difficulty target, the block seal is valid. Verifiers re-execute the exact pipeline per seal without storing raw meshes. See the <a href="network.html#poscan" style="color:var(--accent);">pipeline breakdown</a>.
-            </div>
+            <summary>What exactly is Proof of Scan?</summary>
+            <div class="faq-body">It&rsquo;s Numen&rsquo;s proof-of-work. Each nonce deterministically seeds a 3D asteroid mesh; its surface is sampled with 4,096 rays into a 23-dimension spectral signature whose hash must meet the difficulty target to seal a block. Finding seals is hard; verifying them is exact.</div>
           </details>
-
           <details class="faq-item">
-            <summary>Which Ethereum tools work with Numen?</summary>
-            <div class="faq-body">
-              All standard tooling works unmodified against Chain ID 32026: MetaMask, Foundry, Hardhat, Remix, ethers.js, viem, and wagmi. Copy-paste configurations are available in the <a href="developers.html" style="color:var(--accent);">Developer Hub</a>.
-            </div>
+            <summary>Which EVM chain ID should I use?</summary>
+            <div class="faq-body">Use <strong>320261</strong> (<code>0x4e305</code>) for the testnet. Devnet builds use 320262, and 32026 is reserved for future mainnet. Standard Ethereum JSON-RPC means MetaMask, Foundry, Hardhat, viem and wagmi all work unmodified.</div>
           </details>
-
           <details class="faq-item">
-            <summary>How fast are blocks and finality?</summary>
-            <div class="faq-body">
-              Miners propose a block roughly every 10 seconds. GRANDPA validators vote in sessions of 60 blocks, finalizing them irreversibly within about 30 seconds. Production and finality are strictly decoupled.
-            </div>
+            <summary>Do I need a private key to mine?</summary>
+            <div class="faq-body">No. Mining only needs a payout address. Generate a keypair offline (for example with <code>subkey generate</code>) and pass just the SS58 address to the node via <code>--miner</code>. Invalid addresses make the node refuse to start &mdash; intentional.</div>
           </details>
-
           <details class="faq-item">
-            <summary>What do miners earn?</summary>
-            <div class="faq-body">
-              Each sealed block pays 16 NMN. Rewards halve every 12.5 million blocks — approximately every four years at the 10-second target.
-            </div>
+            <summary>How do rewards and halvings work?</summary>
+            <div class="faq-body">Each sealed block mints 16 NMN to the miner&rsquo;s payout account. Every 12,500,000 blocks (~4 years) the reward halves, so total mined issuance converges to 400 million NMN. Orphan blocks earn nothing.</div>
           </details>
-
           <details class="faq-item">
-            <summary>How does difficulty stay stable?</summary>
-            <div class="faq-body">
-              Numen uses ASERT (Absolutely Scheduled Exponential Target), anchored to genesis rather than the previous block. Difficulty self-heals: if hashpower drops drastically, it halves every 30 minutes until the 10-second cadence resumes, eliminating oscillation and manipulation vectors.
-            </div>
+            <summary>Is there a block explorer?</summary>
+            <div class="faq-body">One is in development. Until it ships, a synced local node is the ground truth &mdash; and the website&rsquo;s network dashboard leaves live figures blank rather than showing stale numbers.</div>
           </details>
-
           <details class="faq-item">
-            <summary>Is mainnet live?</summary>
-            <div class="faq-body">
-              Not yet. Numen runs as a hardened testnet (v0.2.0) with no sudo keys. Mainnet genesis — validator bootstrap, mining pool integration, and public RPC clusters — is in development per the <a href="index.html#roadmap" style="color:var(--accent);">roadmap</a>.
-            </div>
+            <summary>Is Numen live on mainnet?</summary>
+            <div class="faq-body">Not yet. A decentralized public testnet runs at release v0.2.0, where sudo was replaced by Prime &mdash; a restricted authority covering runtime upgrades and vetoes only. Mainnet preparation is in development.</div>
           </details>
-
           <details class="faq-item">
-            <summary>What can Spectral3D be used for?</summary>
-            <div class="faq-body">
-              Spectral3D converts rigid geometry into stable cryptographic fingerprints: re-scanning a physical object under any scanner, pose, or noise threshold yields the same HASH ID. Planned applications include on-chain physical object identity registration and zero-knowledge spatial proofs.
-            </div>
+            <summary>Can I register a physical object on-chain today?</summary>
+            <div class="faq-body">Registration is planned, not shipped. Spectral3D identities already power the mining work function, and the library is open source &mdash; but applications that own, track or tokenize object identities wait on the planned registry. See the roadmap.</div>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Resources ================================ -->
+    <section id="resources" class="section section-alt" aria-labelledby="res-title">
+      <div class="wrap">
+        <div class="section-head rv">
+          <p class="eyebrow">Primary sources</p>
+          <h2 id="res-title">Read it from the repository</h2>
+        </div>
+        <div class="grid g2">
+          <div class="kv-list card flat rv">
+            <a class="kv-row" href="https://github.com/numen-network/numen/blob/master/docs/how-to-build.md" target="_blank" rel="noopener"><span class="k">Build guide (Rust toolchain)</span><span class="v acc">&rarr;</span></a>
+            <a class="kv-row" href="https://github.com/numen-network/numen/tree/master/pallets/difficulty" target="_blank" rel="noopener"><span class="k">ASERT difficulty pallet README</span><span class="v acc">&rarr;</span></a>
+            <a class="kv-row" href="https://github.com/numen-network/numen/tree/master/consensus/poscan" target="_blank" rel="noopener"><span class="k">PoScan consensus crate</span><span class="v acc">&rarr;</span></a>
+            <a class="kv-row" href="https://github.com/numen-network/spectral3d" target="_blank" rel="noopener"><span class="k">Spectral3D library</span><span class="v acc">&rarr;</span></a>
+          </div>
+          <div class="kv-list card flat rv" style="--rvd:100ms;">
+            <a class="kv-row" href="https://github.com/numen-network/numen/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener"><span class="k">Contributing guide</span><span class="v acc">&rarr;</span></a>
+            <a class="kv-row" href="https://github.com/numen-network/numen/releases" target="_blank" rel="noopener"><span class="k">Release artifacts &amp; binaries</span><span class="v acc">&rarr;</span></a>
+            <a class="kv-row" href="https://github.com/numen-network/numen/tree/master/zombienet/evm-tooling" target="_blank" rel="noopener"><span class="k">EVM tooling integration tests</span><span class="v acc">&rarr;</span></a>
+            <a class="kv-row" href="https://github.com/numen-network/numen/blob/master/LICENSE" target="_blank" rel="noopener"><span class="k">MIT license</span><span class="v acc">&rarr;</span></a>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
-  <!-- Footer -->
+
   <footer class="footer">
-    <div class="wrap">
+    <div class="wrap wrap-wide">
       <div class="footer-grid">
-        <div class="footer-col">
-          <div class="logo" style="margin-bottom:16px;">
-            <div class="logo-mark" aria-hidden="true"></div>
-            <span class="logo-name">NUMEN NETWORK</span>
-          </div>
-          <p style="font-size:13.5px; color:var(--body); margin-bottom:16px;">
-            Proof-of-Scan Layer 1 blockchain. Turning physical and computational geometry into cryptographic consensus.
-          </p>
-          <span class="badge badge-testnet">TESTNET v0.2.0</span>
+        <div class="footer-brand">
+          <a class="logo" href="index.html" aria-label="Numen Network home">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <span class="logo-name">NUMEN<b>&middot;</b>NETWORK</span>
+          </a>
+          <p>A Proof-of-Scan Layer 1 connecting the physical world to verifiable digital identities. Built with the Polkadot SDK. Open source under MIT.</p>
+          <span class="chip chip-testnet">Testnet v0.2.0</span>
         </div>
-
-        <div class="footer-col">
-          <h4>Protocol</h4>
+        <nav class="footer-col" aria-label="Network links">
+          <h4>Network</h4>
           <ul>
-            <li><a href="network.html#poscan">Proof-of-Scan</a></li>
-            <li><a href="network.html#consensus">Hybrid Consensus</a></li>
-            <li><a href="network.html#vision">Spectral3D</a></li>
-            <li><a href="network.html#mine">Mining Guide</a></li>
+            <li><a href="network.html">Technology</a></li>
+            <li><a href="network.html#poscan">Proof of Scan</a></li>
+            <li><a href="index.html#network">Network status</a></li>
+            <li><a href="mining.html">Mining</a></li>
           </ul>
-        </div>
-
-        <div class="footer-col">
+        </nav>
+        <nav class="footer-col" aria-label="Developers links">
           <h4>Developers</h4>
           <ul>
-            <li><a href="developers.html">Developer Hub</a></li>
-            <li><a href="developers.html#rpc">RPC Configuration</a></li>
-            <li><a href="developers.html#snippets">Code Examples</a></li>
-            <li><a href="https://github.com/numen-network/numen" target="_blank" rel="noopener">GitHub Repo</a></li>
+            <li><a href="developers.html">Developer hub</a></li>
+            <li><a href="developers.html#config">Network config</a></li>
+            <li><a href="developers.html#snippets">Code examples</a></li>
+            <li><a href="developers.html#rpc">Mining RPC</a></li>
           </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Ecosystem</h4>
+        </nav>
+        <nav class="footer-col" aria-label="Resources links">
+          <h4>Resources</h4>
           <ul>
-            <li><a href="ecosystem.html">Ecosystem Hub</a></li>
-            <li><a href="ecosystem.html#community">Community Channels</a></li>
             <li><a href="docs.html">Documentation</a></li>
-            <li><a href="mailto:contact@numen-network.org">Contact Team</a></li>
+            <li><a href="docs.html#specs">Spec sheet</a></li>
+            <li><a href="docs.html#faq">FAQ</a></li>
+            <li><a href="https://github.com/numen-network/numen/releases" target="_blank" rel="noopener">Releases</a></li>
           </ul>
-        </div>
+        </nav>
+        <nav class="footer-col" aria-label="Community links">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://discord.gg/WKmyTfmaa" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://t.me/numen_network" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://x.com/numen_network" target="_blank" rel="noopener">X / Twitter</a></li>
+            <li><a href="mailto:contact@numen-network.org">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-
       <div class="footer-bottom">
-        <span class="foot-copy">© 2026 Numen Network. Open source protocol.</span>
-
+        <span class="foot-copy">&copy; <span data-year>2026</span> Numen Network &middot; Open source under <a href="https://github.com/numen-network/numen/blob/master/LICENSE" target="_blank" rel="noopener">MIT</a></span>
         <div class="foot-socials">
-          <a class="foot-icon" href="https://github.com/numen-network/numen" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-          <a class="foot-icon" href="https://discord.gg/ajPKdvrvJK" target="_blank" rel="noopener" aria-label="Discord"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
-          <a class="foot-icon" href="https://x.com/numen_network" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
-          <a class="foot-icon" href="https://t.me/numen_network" target="_blank" rel="noopener" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+          <a class="foot-icon" href="https://github.com/numen-network/numen" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+          <a class="foot-icon" href="https://x.com/numen_network" target="_blank" rel="noopener" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+          <a class="foot-icon" href="https://discord.gg/WKmyTfmaa" target="_blank" rel="noopener" aria-label="Discord"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+          <a class="foot-icon" href="https://t.me/numen_network" target="_blank" rel="noopener" aria-label="Telegram"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+          <a class="foot-icon" href="https://www.youtube.com/@numen_network" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
         </div>
       </div>
     </div>

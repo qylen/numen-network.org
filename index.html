@@ -3,29 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Numen Network · Proof-of-Scan Layer 1 Blockchain</title>
-<meta name="description" content="Numen Network is a Proof-of-Scan Layer 1 blockchain uniting PoW block proposal, GRANDPA BFT finality, full EVM compatibility, and Spectral3D geometry proof.">
+<title>Numen Network — Layer 1 Blockchain Powered by Proof of Scan</title>
+<meta name="description" content="Numen Network is a Proof-of-Scan Layer 1 blockchain built on the Polkadot SDK. Miners earn blocks through verifiable geometry proofs while physical objects gain stable digital identities. EVM compatible, open source.">
+<link rel="canonical" href="https://numen-network.org/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Numen Network · Proof-of-Scan Layer 1">
-<meta property="og:description" content="The ledger of things. PoScan mining, 10-second blocks, GRANDPA BFT finality, EVM Chain ID 32026.">
+<meta property="og:site_name" content="Numen Network">
+<meta property="og:title" content="Numen Network — Layer 1 Blockchain Powered by Proof of Scan">
+<meta property="og:description" content="A blockchain for the physical world. Proof-of-Scan consensus on a Polkadot SDK Layer 1, EVM compatible, community governed.">
 <meta property="og:url" content="https://numen-network.org/">
 <meta property="og:image" content="https://numen-network.org/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@numen_network">
-<meta name="theme-color" content="#0d0e12">
+<meta name="twitter:title" content="Numen Network — Layer 1 Blockchain Powered by Proof of Scan">
+<meta name="twitter:description" content="A blockchain for the physical world. Proof-of-Scan consensus on a Polkadot SDK Layer 1.">
+<meta name="twitter:image" content="https://numen-network.org/og.png">
+<meta name="theme-color" content="#06070b">
 <meta name="theme-color" content="#fafbfd" media="(prefers-color-scheme: light)">
-<link rel="canonical" href="https://numen-network.org/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%2322d3ee'/%3E%3Cpath d='M4.3 12V4h1.9l3.6 5V4h1.9v8H9.8L6.2 7v5z' fill='%230d0e12'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3.5' fill='%2329d8f0'/%3E%3Cpath d='M4.2 12V4h2l3.7 5.2V4h1.9v8H9.8L6.1 6.9V12z' fill='%23060b12'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script>(function(){try{var t=localStorage.getItem('numen-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t==='light')document.documentElement.dataset.theme='light';}catch(e){}})();</script>
 <script src="asteroid.js" defer></script>
+<script src="hero-scan.js" defer></script>
 <script src="poscan-sim.js" defer></script>
 <script src="main.js" defer></script>
 
-<!-- Structured Metadata (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -35,12 +38,13 @@
       "name": "Numen Network",
       "url": "https://numen-network.org/",
       "logo": "https://numen-network.org/og.png",
-      "description": "Numen Network develops the Proof-of-Scan Layer 1 blockchain protocol.",
+      "description": "Numen Network develops a Proof-of-Scan Layer 1 blockchain built with the Polkadot SDK.",
       "sameAs": [
         "https://github.com/numen-network/numen",
         "https://x.com/numen_network",
         "https://t.me/numen_network",
-        "https://discord.gg/ajPKdvrvJK"
+        "https://discord.gg/WKmyTfmaa",
+        "https://www.youtube.com/@numen_network"
       ]
     },
     {
@@ -50,12 +54,13 @@
     },
     {
       "@type": "SoftwareApplication",
-      "name": "Numen Network",
+      "name": "Numen",
       "applicationCategory": "Blockchain Protocol",
       "operatingSystem": "Linux, macOS",
-      "description": "Proof-of-Scan Layer 1 protocol uniting PoW mining, BFT finality, and Spectral3D computational proof.",
-      "url": "https://numen-network.org/",
-      "softwareVersion": "0.2.0"
+      "description": "Proof-of-Scan Layer 1 node uniting PoW block proposal, GRANDPA BFT finality, and Spectral3D computational proof. Built with the Polkadot SDK.",
+      "url": "https://github.com/numen-network/numen",
+      "softwareVersion": "0.2.0",
+      "license": "https://github.com/numen-network/numen/blob/master/LICENSE"
     }
   ]
 }
@@ -69,365 +74,1063 @@
 
 <div class="page">
 
-  <!-- Primary Navigation -->
-  <nav class="nav" aria-label="Main Navigation">
-    <a class="logo" href="index.html">
-      <div class="logo-mark" aria-hidden="true"></div>
-      <span class="logo-name">NUMEN NETWORK</span>
+  <!-- ================================ Navigation ============================ -->
+  <nav class="nav" aria-label="Main navigation">
+    <a class="logo" href="index.html" aria-label="Numen Network home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-name">NUMEN<b>&middot;</b>NETWORK</span>
     </a>
 
     <div class="nav-links">
-      <a class="nav-link active" href="index.html">Overview</a>
-      <a class="nav-link" href="network.html">Protocol</a>
+      <a class="nav-link active" href="index.html" aria-current="page">Overview</a>
+      <a class="nav-link" href="network.html">Technology</a>
+      <a class="nav-link" href="mining.html">Mining</a>
       <a class="nav-link" href="developers.html">Developers</a>
       <a class="nav-link" href="ecosystem.html">Ecosystem</a>
       <a class="nav-link" href="docs.html">Docs</a>
     </div>
 
     <div class="nav-right">
-      <a class="btn-nav-cta" href="developers.html">Start Building</a>
-      <button class="theme-toggle" type="button" aria-label="Toggle theme">
-        <svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
-        <svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <a class="icon-btn github-btn" href="https://github.com/numen-network/numen" target="_blank" rel="noopener" aria-label="Numen on GitHub">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle color theme">
+        <svg class="ic-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
+        <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
-      <button class="nav-burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <a class="btn btn-primary btn-nav" href="developers.html">Start Building</a>
+      <button class="icon-btn nav-burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <div id="mobile-menu" class="mobile-menu" hidden>
-    <a class="active" href="index.html">Overview</a>
-    <a href="network.html">Protocol</a>
-    <a href="developers.html">Developers</a>
-    <a href="ecosystem.html">Ecosystem</a>
-    <a href="docs.html">Docs</a>
-    <a href="developers.html">Start Building →</a>
+  <div id="mobile-menu" class="mobile-menu">
+    <nav class="mm-links" aria-label="Mobile navigation">
+      <a class="active" href="index.html">Overview<span class="mm-n">01</span></a>
+      <a href="network.html">Technology<span class="mm-n">02</span></a>
+      <a href="mining.html">Mining<span class="mm-n">03</span></a>
+      <a href="developers.html">Developers<span class="mm-n">04</span></a>
+      <a href="ecosystem.html">Ecosystem<span class="mm-n">05</span></a>
+      <a href="docs.html">Docs<span class="mm-n">06</span></a>
+    </nav>
+    <div class="mm-foot">
+      <a class="btn btn-primary" href="developers.html">Start Building</a>
+      <div class="mm-social">
+        <a class="foot-icon" href="https://github.com/numen-network/numen" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+        <a class="foot-icon" href="https://x.com/numen_network" target="_blank" rel="noopener" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+        <a class="foot-icon" href="https://discord.gg/WKmyTfmaa" target="_blank" rel="noopener" aria-label="Discord"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+        <a class="foot-icon" href="https://t.me/numen_network" target="_blank" rel="noopener" aria-label="Telegram"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+      </div>
+    </div>
   </div>
 
   <main id="main">
 
-    <!-- Hero Section -->
+    <!-- ================================ Hero ================================= -->
     <header class="hero">
-      <div class="wrap">
-        <div class="hero-inner">
-          <div class="kicker">Proof-of-Scan Layer 1 · PoW × BFT</div>
-          <h1>The ledger of things</h1>
-          <p class="hero-sub">
-            Numen turns scanning into proof, proof into consensus, and consensus into a deterministic ledger for things. Powered by 10-second PoW proposals, GRANDPA BFT finality, and full EVM compatibility.
-          </p>
-          <div class="cta-row">
-            <a class="btn-primary" href="#poscan">Explore Network</a>
-            <a class="btn-secondary" href="network.html#mine">Start Mining</a>
-            <a class="btn-secondary" href="developers.html">Developer Quickstart</a>
+      <div class="wrap wrap-wide">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-kicker-row rv">
+              <span class="chip chip-testnet">Testnet v0.2.0</span>
+              <span class="chip chip-plan">Polkadot SDK</span>
+              <span class="chip chip-plan">Open Source · MIT</span>
+            </div>
+            <h1 class="rv" style="--rvd:60ms;">A blockchain for the <span class="hl">physical&nbsp;world.</span></h1>
+            <p class="hero-sub rv" style="--rvd:140ms;">
+              Numen turns scanning into consensus. Its miners don&rsquo;t guess random
+              numbers &mdash; they run <strong>Proof&#8209;of&#8209;Scan</strong>, computing verifiable
+              geometric proofs that secure the chain while giving real-world objects
+              the digital identities they never had.
+            </p>
+            <div class="cta-row rv" style="--rvd:220ms;">
+              <a class="btn btn-primary" href="#network">
+                Explore the Network
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+              <a class="btn btn-secondary" href="developers.html">Build on Numen</a>
+            </div>
+            <div class="hero-kicker-row rv" style="--rvd:290ms; margin-top:18px;">
+              <a class="link-arrow dim" href="docs.html">Documentation</a>
+              <a class="link-arrow dim" href="https://github.com/numen-network/numen" target="_blank" rel="noopener">GitHub</a>
+              <a class="link-arrow dim" href="ecosystem.html#community">Community</a>
+            </div>
+
+            <dl class="hero-meta rv" style="--rvd:360ms;">
+              <div><dt>Block time</dt><dd>10 s target</dd></div>
+              <div><dt>Finality</dt><dd>GRANDPA BFT</dd></div>
+              <div><dt>EVM chain</dt><dd>320261 · testnet</dd></div>
+              <div><dt>Reward</dt><dd>16 NMN / block</dd></div>
+            </dl>
           </div>
+
+          <aside class="scan-stage rv" style="--rvd:180ms;" aria-label="Illustration of the Proof-of-Scan work pipeline">
+            <div class="stage-bar">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span>PoScan &middot; work pipeline</span>
+              <span id="scan-tag">OBJECT DETECTED</span>
+            </div>
+            <div class="scan-view">
+              <canvas id="scan-canvas" aria-hidden="true"></canvas>
+              <div class="scan-hud" aria-hidden="true">
+                <i class="hud-corner tl"></i><i class="hud-corner tr"></i>
+                <i class="hud-corner bl"></i><i class="hud-corner br"></i>
+                <span class="hud-tag">seed &rarr; mesh &rarr; scan &rarr; seal</span>
+                <div class="hud-hash" id="scan-hash"></div>
+                <div class="hud-readout">
+                  <span>TARGET &middot; 10.0 s</span>
+                  <span id="scan-status">AWAITING TASK</span>
+                </div>
+              </div>
+            </div>
+            <div class="stage-caption">
+              <span>Illustrative view of the deterministic work Numen miners compute every block.</span>
+              <a class="link-arrow dim" href="network.html#poscan">How PoScan works
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </aside>
+        </div>
+
+        <div class="pipe rv" style="--rvd:420ms;" role="img" aria-label="Pipeline: physical object, scan, identity, applications">
+          <div class="pipe-node"><b>Object</b><i>physical input</i></div>
+          <div class="pipe-node"><b>Scan</b><i>geometry work</i></div>
+          <div class="pipe-node"><b>Identity</b><i>spectral hash</i></div>
+          <div class="pipe-node"><b>Applications</b><i>contracts &amp; dApps</i></div>
         </div>
       </div>
     </header>
 
-    <!-- Core Protocol Pillars Section -->
-    <section id="poscan" class="section-padding">
+    <!-- Fact strip -->
+    <div class="fact-strip">
+      <div class="wrap wrap-wide">
+        <div class="fact"><b>10&nbsp;s</b><span>block target</span></div>
+        <div class="fact"><b>GRANDPA</b><span>BFT finality</span></div>
+        <div class="fact"><b>16&nbsp;NMN</b><span>initial reward</span></div>
+        <div class="fact"><b>400M</b><span>mined-issuance cap</span></div>
+        <div class="fact"><b>4096&times;23</b><span>PoScan work function</span></div>
+        <div class="fact"><b>EVM</b><span>compatible</span></div>
+      </div>
+    </div>
+
+    <!-- ============================== Problem ================================ -->
+    <section class="section" aria-labelledby="problem-title">
       <div class="wrap">
-        <div class="eyebrow">Protocol Pillars</div>
-        <h2>Computational Proof Meets BFT Finality</h2>
-        <p class="lead">
-          Numen replaces arbitrary hash searching with deterministic geometric scanning. Miners grow 3D meshes and sample spectral signatures to generate proof.
-        </p>
-
-        <div class="grid-4">
-
-          <div class="card">
-            <div class="card-header">
-              <span class="badge badge-live">LIVE</span>
-            </div>
-            <div class="card-vis">
-              <canvas id="rock" width="220" height="130" aria-label="3D Mesh Visualization"></canvas>
-            </div>
-            <h3>The Scan is the Work</h3>
-            <p>Each nonce seeds a deterministic asteroid mesh. Sampling 4,096 surface points derives a 23-dimension spectral signature—the proof-of-work.</p>
-            <a class="item-link" href="network.html#poscan" style="font-weight:600; text-decoration:underline;">How PoScan Works →</a>
+        <div class="problem-grid">
+          <div class="rv">
+            <p class="eyebrow">The problem</p>
+            <h2 id="problem-title" class="big-quote" style="font-family:var(--display);">
+              Billions of physical objects move, degrade and change hands every day
+              &mdash; <em>and almost none of them can be verified on-chain.</em>
+            </h2>
+            <p class="lead muted" style="margin-top:22px;">
+              Digital systems verify files, signatures and messages natively. The moment
+              value leaves the screen &mdash; a machine, a shipment, a spare part &mdash;
+              verification collapses back onto paperwork and trust.
+            </p>
           </div>
-
-          <div class="card">
-            <div class="card-header">
-              <span class="badge badge-live">LIVE</span>
-            </div>
-            <div class="card-vis">
-              <svg width="200" height="110" viewBox="0 0 200 110" fill="none">
-                <rect x="10" y="30" width="34" height="34" rx="6" style="stroke:var(--accent)" stroke-width="2" fill="none"/>
-                <rect x="64" y="30" width="34" height="34" rx="6" style="stroke:var(--accent)" stroke-width="2" fill="none"/>
-                <rect x="118" y="30" width="34" height="34" rx="6" style="stroke:var(--accent)" stroke-width="2" fill="none"/>
-                <rect x="156" y="30" width="34" height="34" rx="6" style="stroke:var(--line3)" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-                <path d="M20 47l4 5 8-9" style="stroke:var(--accent)" stroke-width="2" stroke-linecap="round"/>
-                <path d="M74 47l4 5 8-9" style="stroke:var(--accent)" stroke-width="2" stroke-linecap="round"/>
-                <path d="M128 47l4 5 8-9" style="stroke:var(--accent)" stroke-width="2" stroke-linecap="round"/>
-                <text x="10" y="85" style="font-family:var(--mono); font-size:9px; fill:var(--lead);">10s PROPOSAL</text>
-                <text x="110" y="85" style="font-family:var(--mono); font-size:9px; fill:var(--lead);">≤30s FINALITY</text>
-              </svg>
-            </div>
-            <h3>PoW Proposes. BFT Disposes.</h3>
-            <p>Permissionless miners propose blocks every 10 seconds. GRANDPA votes finalize blocks irreversibly in under 30 seconds.</p>
-            <a class="item-link" href="network.html#consensus" style="font-weight:600; text-decoration:underline;">Consensus Architecture →</a>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <span class="badge badge-avail">AVAILABLE</span>
-            </div>
-            <div class="card-vis">
-              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; padding:12px;">
-                <span style="font-family:var(--mono); font-size:9px; border:1px solid var(--line2); padding:4px; text-align:center;">MetaMask</span>
-                <span style="font-family:var(--mono); font-size:9px; border:1px solid var(--line2); padding:4px; text-align:center;">Foundry</span>
-                <span style="font-family:var(--mono); font-size:9px; border:1px solid var(--line2); padding:4px; text-align:center;">Hardhat</span>
-                <span style="font-family:var(--mono); font-size:9px; border:1px solid var(--line2); padding:4px; text-align:center;">viem</span>
-                <span style="font-family:var(--mono); font-size:9px; border:1px solid var(--line2); padding:4px; text-align:center;">wagmi</span>
-                <span style="font-family:var(--mono); font-size:9px; border:1px solid var(--line2); padding:4px; text-align:center;">32026</span>
+          <div class="offline-list rv" style="--rvd:120ms;">
+            <div class="offline-item">
+              <span class="offline-num">/01</span>
+              <div>
+                <h3>Identity doesn&rsquo;t survive the real world</h3>
+                <p>A file hash changes when a single bit or metadata tag changes. It describes the copy &mdash; never the object itself.</p>
               </div>
             </div>
-            <h3>Ethereum Compatibility</h3>
-            <p>Full EVM behind standard JSON-RPC on chain ID 32026. Point standard EVM deployment tools directly at any Numen node.</p>
-            <a class="item-link" href="developers.html" style="font-weight:600; text-decoration:underline;">Developer Quickstart →</a>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <span class="badge badge-live">LIVE</span>
+            <div class="offline-item">
+              <span class="offline-num">/02</span>
+              <div>
+                <h3>Verification runs through intermediaries</h3>
+                <p>Authenticity and provenance still depend on centralized registries, manual audits and parties you have to trust.</p>
+              </div>
             </div>
-            <div class="card-vis">
-              <svg width="200" height="110" viewBox="0 0 200 110" fill="none">
-                <circle cx="100" cy="55" r="35" style="stroke:var(--accent)" stroke-width="1.5" stroke-dasharray="3 3"/>
-                <path d="M70 55 C70 35, 130 35, 130 55 C130 75, 70 75, 70 55 Z" style="stroke:var(--accent)" stroke-width="2"/>
-                <text x="58" y="98" style="font-family:var(--mono); font-size:9px; fill:var(--lead);">SPECTRAL3D HASH ID</text>
-              </svg>
+            <div class="offline-item">
+              <span class="offline-num">/03</span>
+              <div>
+                <h3>Blockchains are blind to physics</h3>
+                <p>Ledgers verify digital events natively, yet atoms reach smart contracts only through whatever feeds the chain.</p>
+              </div>
             </div>
-            <h3>Shape is Identity</h3>
-            <p>Spectral3D turns rigid geometry into a stable fingerprint. Any scanner, any pose, the same cryptographic identity.</p>
-            <a class="item-link" href="network.html#vision" style="font-weight:600; text-decoration:underline;">Spectral3D Library →</a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Interactive Proof-of-Scan Simulator -->
-    <section class="section-padding" style="background:var(--bg2);">
+    <!-- ========================= Proof of Scan stepper ======================== -->
+    <section id="poscan" class="section section-alt" aria-labelledby="poscan-title">
       <div class="wrap">
-        <div class="eyebrow">Interactive Verification</div>
-        <h2>Proof-of-Scan Execution Pipeline</h2>
-        <p class="lead">
-          Test the deterministic geometry pipeline. Changing the nonce modifies the seed, growing a unique 2,562-vertex asteroid, sampling 4,096 rays, and computing its spectral target hash.
-        </p>
+        <div class="section-head rv">
+          <p class="eyebrow">Introducing</p>
+          <h2 id="poscan-title">Proof of Scan</h2>
+          <p class="lead">
+            Numen&rsquo;s native proof-of-work is not arbitrary hash-searching. Each attempt
+            deterministically grows a 3D mesh from a seed, scans its surface with 4,096 rays,
+            and reduces it to a spectral fingerprint. Finding a valid seal is genuinely hard
+            work &mdash; verifying one is exact.
+          </p>
+        </div>
 
-        <div class="sim-container">
+        <div class="poscan-shell rv" data-tabs data-auto data-interval="5200">
+          <div class="poscan-steps" role="tablist" aria-label="Proof-of-Scan steps" aria-orientation="vertical">
+            <button class="poscan-step done" role="tab" id="ps-tab-1" aria-controls="ps-panel-1" aria-selected="true" tabindex="0">
+              <span class="step-no">01</span>
+              <span>
+                <span class="step-title">Scan</span>
+                <span class="step-desc">A generated surface is measured.</span>
+              </span>
+              <span class="step-state">Live</span>
+            </button>
+            <button class="poscan-step done" role="tab" id="ps-tab-2" aria-controls="ps-panel-2" aria-selected="false" tabindex="-1">
+              <span class="step-no">02</span>
+              <span>
+                <span class="step-title">Identify</span>
+                <span class="step-desc">Geometry becomes a fingerprint.</span>
+              </span>
+              <span class="step-state">Live</span>
+            </button>
+            <button class="poscan-step done" role="tab" id="ps-tab-3" aria-controls="ps-panel-3" aria-selected="false" tabindex="-1">
+              <span class="step-no">03</span>
+              <span>
+                <span class="step-title">Verify</span>
+                <span class="step-desc">Work meets the difficulty target.</span>
+              </span>
+              <span class="step-state">Live</span>
+            </button>
+            <button class="poscan-step" role="tab" id="ps-tab-4" aria-controls="ps-panel-4" aria-selected="false" tabindex="-1">
+              <span class="step-no">04</span>
+              <span>
+                <span class="step-title">Build</span>
+                <span class="step-desc">Identities become programmable.</span>
+              </span>
+              <span class="step-state">EVM live</span>
+            </button>
+            <button class="poscan-step" role="tab" id="ps-tab-5" aria-controls="ps-panel-5" aria-selected="false" tabindex="-1">
+              <span class="step-no">05</span>
+              <span>
+                <span class="step-title">Own</span>
+                <span class="step-desc">Objects get owners and history.</span>
+              </span>
+              <span class="step-state">Planned</span>
+            </button>
+          </div>
+
+          <div class="poscan-stage">
+            <section class="poscan-panel on" role="tabpanel" id="ps-panel-1" aria-labelledby="ps-tab-1">
+              <div class="poscan-vis">
+                <svg viewBox="0 0 420 260" role="img" aria-label="Illustration of surface scanning">
+                  <path class="pv-accent pv-thin" d="M32 54V32h22 M344 32h22v22 M366 206v22h-22 M54 228H32v-22"/>
+                  <polygon class="pv-stroke" points="210,74 256,101 256,155 210,182 164,155 164,101"/>
+                  <circle class="pv-stroke pv-thin" cx="210" cy="128" r="23"/>
+                  <circle class="pv-accent" cx="210" cy="128" r="7"/>
+                  <circle class="pv-stroke pv-thin" cx="210" cy="74" r="5"/>
+                  <circle class="pv-stroke pv-thin" cx="256" cy="155" r="5"/>
+                  <circle class="pv-stroke pv-thin" cx="164" cy="155" r="5"/>
+                  <g class="pv-sweep" style="--sweep-dist:150px;">
+                    <rect x="142" y="58" width="136" height="26" fill="rgba(41,216,240,0.08)" stroke="none"/>
+                    <line class="pv-accent pv-thin" x1="142" y1="58" x2="278" y2="58"/>
+                  </g>
+                  <text class="pv-text acc" x="146" y="218">SURFACE SCAN &#183; 4,096 SAMPLE RAYS</text>
+                </svg>
+              </div>
+              <p class="panel-note">
+                Every mining attempt grows an asteroid mesh from a seed, then sweeps its
+                surface with <b>4,096 sample rays</b>. Subdivision level is pinned by the
+                protocol, so resolution cannot be traded for speed.
+              </p>
+            </section>
+
+            <section class="poscan-panel" role="tabpanel" id="ps-panel-2" aria-labelledby="ps-tab-2">
+              <div class="poscan-vis">
+                <svg viewBox="0 0 420 260" role="img" aria-label="Illustration of identity formation">
+                  <polygon class="pv-stroke" points="112,92 152,116 152,163 112,187 72,163 72,116"/>
+                  <circle class="pv-dot" cx="112" cy="139" r="4" fill="var(--accent)" stroke="none"/>
+                  <path class="pv-dash" d="M166 132 C 196 126, 198 106, 226 104"/>
+                  <rect class="pv-fill" x="226" y="86" width="168" height="66" rx="8"/>
+                  <text class="pv-text ink" x="240" y="108">SPECTRAL IDENTITY</text>
+                  <text class="pv-text acc" x="240" y="126">0x00004a8f9c2e71bd</text>
+                  <text class="pv-text" x="240" y="143">23-D QUANTIZED VECTOR</text>
+                  <path class="pv-dash" d="M166 148 C 202 154, 204 186, 232 192"/>
+                  <text class="pv-text" x="234" y="212">ROTATION-INVARIANT FINGERPRINT</text>
+                  <text class="pv-text" x="60" y="222">SAME OBJECT &rarr; SAME HASH</text>
+                </svg>
+              </div>
+              <p class="panel-note">
+                Ray measurements resolve into <b>23 quantized spectral dimensions</b>.
+                Re-scanning the same geometry from any pose yields the same identity &mdash;
+                that stability is what makes it useful beyond mining.
+              </p>
+            </section>
+
+            <section class="poscan-panel" role="tabpanel" id="ps-panel-3" aria-labelledby="ps-tab-3">
+              <div class="poscan-vis">
+                <svg viewBox="0 0 420 260" role="img" aria-label="Illustration of seal verification">
+                  <text class="pv-text ink" x="40" y="86">WORK HASH</text>
+                  <rect class="pv-fill" x="40" y="94" width="270" height="16" rx="4"/>
+                  <rect x="40" y="94" width="188" height="16" rx="4" fill="var(--accent)" opacity="0.45"/>
+                  <text class="pv-text" x="318" y="107">0x00004a8f&#8230;</text>
+                  <text class="pv-text ink" x="40" y="150">DIFFICULTY TARGET</text>
+                  <rect class="pv-fill" x="40" y="158" width="270" height="16" rx="4"/>
+                  <line class="pv-accent" x1="252" y1="150" x2="252" y2="182"/>
+                  <text class="pv-text acc" x="256" y="146">TARGET</text>
+                  <circle class="pv-accent" cx="348" cy="166" r="17"/>
+                  <path class="pv-accent" d="M340 166l6 6 11-11"/>
+                  <text class="pv-text" x="40" y="222">HASH &#8804; TARGET &rarr; SEAL ACCEPTED &middot; ADJUSTED BY ASERT EVERY BLOCK</text>
+                </svg>
+              </div>
+              <p class="panel-note">
+                Quantized features hash into the work hash. If it meets the
+                ASERT-adjusted target, the seal is valid and proposes a block &mdash;
+                <b>hard to find, instant to verify</b>.
+              </p>
+            </section>
+
+            <section class="poscan-panel" role="tabpanel" id="ps-panel-4" aria-labelledby="ps-tab-4">
+              <div class="poscan-vis">
+                <svg viewBox="0 0 420 260" role="img" aria-label="Illustration of building with identities">
+                  <rect class="pv-fill" x="40" y="48" width="122" height="34" rx="7"/>
+                  <text class="pv-text acc" x="53" y="69">ID 0x0000&#8230;71bd</text>
+                  <path class="pv-dash" d="M162 64 C 200 64, 204 88, 238 88"/>
+                  <rect class="pv-fill" x="238" y="54" width="152" height="126" rx="8"/>
+                  <line class="pv-stroke pv-thin" x1="238" y1="78" x2="390" y2="78"/>
+                  <circle class="pv-stroke pv-thin" cx="252" cy="66" r="3"/>
+                  <circle class="pv-stroke pv-thin" cx="262" cy="66" r="3"/>
+                  <text class="pv-text" x="276" y="70">Contract.sol</text>
+                  <rect x="250" y="90" width="96" height="5" rx="2.5" fill="var(--line3)"/>
+                  <rect x="250" y="103" width="120" height="5" rx="2.5" fill="var(--line3)"/>
+                  <rect x="250" y="116" width="76" height="5" rx="2.5" fill="var(--accent)" opacity="0.55"/>
+                  <rect x="250" y="129" width="110" height="5" rx="2.5" fill="var(--line3)"/>
+                  <rect x="250" y="142" width="60" height="5" rx="2.5" fill="var(--line3)"/>
+                  <text class="pv-text acc" x="40" y="216">STANDARD SOLIDITY &middot; ETHEREUM TOOLING</text>
+                  <text class="pv-text" x="40" y="232">READ IDENTITIES FROM CONTRACTS</text>
+                </svg>
+              </div>
+              <p class="panel-note">
+                Seals anchor blocks; the same machinery anchors objects. Contracts read both
+                through <b>standard EVM JSON-RPC</b> on chain 320261 &mdash; Foundry,
+                Hardhat, viem and ethers work unmodified.
+              </p>
+            </section>
+
+            <section class="poscan-panel" role="tabpanel" id="ps-panel-5" aria-labelledby="ps-tab-5">
+              <div class="poscan-vis">
+                <svg viewBox="0 0 420 260" role="img" aria-label="Illustration of ownership applications">
+                  <rect x="160" y="102" width="100" height="48" rx="9" fill="var(--bg2)" stroke="var(--accent-line)"/>
+                  <path class="pv-accent pv-thin" d="M196 126c0-8 5.5-14 14-14s14 6 14 14-4 12-9 14m-13-14c0-5 3.4-9 8-9s8 4 8 9-2 8-6 9"/>
+                  <text class="pv-text ink" x="185" y="168">IDENTITY</text>
+                  <path class="pv-dash" d="M160 114 C 120 104, 110 84, 92 72"/>
+                  <path class="pv-dash" d="M260 114 C 300 104, 310 84, 328 72"/>
+                  <path class="pv-dash" d="M210 150 L 210 186"/>
+                  <circle class="pv-fill" cx="84" cy="58" r="24"/>
+                  <circle class="pv-fill" cx="336" cy="58" r="24"/>
+                  <circle class="pv-fill" cx="210" cy="204" r="24"/>
+                  <text class="pv-text" x="62" y="100">RWA</text>
+                  <text class="pv-text" x="304" y="100">SUPPLY CHAIN</text>
+                  <text class="pv-text" x="178" y="248">AUTHENTICITY</text>
+                  <text class="pv-text acc" x="40" y="34">OWN &#183; TRACK &#183; TOKENIZE &#8212; PLANNED REGISTRY</text>
+                </svg>
+              </div>
+              <p class="panel-note">
+                With a planned on-chain registry, identities support real-world
+                applications: asset records, custody tracking, tokenization and
+                authenticity checks. <b>Registry functionality is planned &mdash; see roadmap.</b>
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= Simulator ================================ -->
+    <section id="simulate" class="section" aria-labelledby="sim-title">
+      <div class="wrap">
+        <div class="section-head rv">
+          <p class="eyebrow">Interactive</p>
+          <h2 id="sim-title">Run the work function</h2>
+          <p class="lead">
+            Drag the nonce. Numen derives a seed, grows a unique asteroid, samples its
+            surface and computes a work hash &mdash; the loop every miner races against a
+            10-second clock.
+          </p>
+        </div>
+
+        <div class="sim-container rv">
           <div class="sim-grid">
-
             <div class="sim-controls">
               <div class="sim-field">
                 <label class="sim-label" for="sim-nonce">
-                  <span>Input Nonce / Seed</span>
-                  <span id="sim-nonce-val">Nonce: 32026</span>
+                  <span>Mining nonce</span>
+                  <span id="sim-nonce-val">Nonce 32,026</span>
                 </label>
-                <input type="range" id="sim-nonce" class="sim-slider" min="1" max="100000" value="32026"
+                <input type="range" id="sim-nonce" class="sim-slider" min="1" max="99999" value="32026"
                   aria-describedby="sim-output-panel">
               </div>
-
               <div class="sim-output" id="sim-output-panel" aria-live="polite">
-                <div class="sim-out-row">
-                  <span style="color:var(--lead);">Derived Seed:</span>
-                  <span class="sim-out-val" id="sim-seed">0x8a92f3b1c4d5e6f7</span>
-                </div>
-                <div class="sim-out-row">
-                  <span style="color:var(--lead);">Preview Mesh:</span>
-                  <span class="sim-out-val" id="sim-mesh">642 Vertices / 1,280 Faces</span>
-                </div>
-                <div class="sim-out-row">
-                  <span style="color:var(--lead);">Surface Scan:</span>
-                  <span class="sim-out-val">4,096 Ray Samples</span>
-                </div>
-                <div class="sim-out-row">
-                  <span style="color:var(--lead);">Spectral Features:</span>
-                  <span class="sim-out-val">23 Quantized Dimensions</span>
-                </div>
-                <div class="sim-out-row" style="border-top:1px solid var(--line2); padding-top:8px; margin-top:4px;">
-                  <span style="color:var(--lead);">Computed Seal Hash:</span>
-                  <span class="sim-out-val" id="sim-hash">0x00004a8f9c2e71bd</span>
-                </div>
+                <div class="sim-out-row"><span class="k">DERIVED SEED</span><span class="v" id="sim-seed">&mdash;</span></div>
+                <div class="sim-out-row"><span class="k">MESH</span><span class="v" id="sim-mesh">&mdash;</span></div>
+                <div class="sim-out-row"><span class="k">SURFACE SCAN</span><span class="v">4,096 ray samples</span></div>
+                <div class="sim-out-row"><span class="k">SPECTRAL FEATURES</span><span class="v">23 quantized dims</span></div>
+                <div class="sim-out-row"><span class="k">WORK HASH</span><span class="v acc" id="sim-hash">&mdash;</span></div>
               </div>
+              <span class="chip chip-plan">Simulation &middot; illustrative</span>
             </div>
-
             <div class="sim-canvas-wrap">
-              <canvas id="sim-canvas" width="400" height="280" aria-label="Interactive Proof-of-Scan mesh preview"></canvas>
+              <canvas id="sim-canvas" aria-label="Interactive Proof-of-Scan mesh preview"></canvas>
             </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Network Metrics Dashboard -->
-    <section class="section-padding">
-      <div class="wrap">
-        <div class="eyebrow">Protocol Specs</div>
-        <h2>Network Parameters & Status</h2>
-        <p class="lead">Verified execution metrics and protocol parameters.</p>
-
-        <div class="grid-3">
-
-          <div class="card">
-            <span class="badge badge-live">LIVE</span>
-            <h3>EVM Chain ID</h3>
-            <div style="font-family:var(--mono); font-size:28px; font-weight:700; color:var(--accent);">32026</div>
-            <p>Standard Ethereum JSON-RPC compatible execution context.</p>
-          </div>
-
-          <div class="card">
-            <span class="badge badge-live">LIVE</span>
-            <h3>Block Time Target</h3>
-            <div style="font-family:var(--mono); font-size:28px; font-weight:700; color:var(--accent);">10.0 Seconds</div>
-            <p>ASERT anchor-based difficulty self-healing algorithm.</p>
-          </div>
-
-          <div class="card">
-            <span class="badge badge-live">LIVE</span>
-            <h3>GRANDPA Finality</h3>
-            <div style="font-family:var(--mono); font-size:28px; font-weight:700; color:var(--accent);">≤ 30 Seconds</div>
-            <p>Irreversible 2/3+ validator set BFT voting.</p>
-          </div>
-
-          <div class="card">
-            <span class="badge badge-live">LIVE</span>
-            <h3>Block Reward</h3>
-            <div style="font-family:var(--mono); font-size:28px; font-weight:700; color:var(--accent);">16 NMN</div>
-            <p>Halving every 12.5M blocks (~4 years).</p>
-          </div>
-
-          <div class="card">
-            <span class="badge badge-testnet">TESTNET</span>
-            <h3>Current Network</h3>
-            <div style="font-family:var(--mono); font-size:28px; font-weight:700; color:var(--accent);">v0.2.0 Hardened</div>
-            <p>No sudo keys, fully decentralized permissionless protocol.</p>
-          </div>
-
-          <div class="card">
-            <span class="badge badge-dev">IN DEVELOPMENT</span>
-            <h3>Mainnet Launch</h3>
-            <div style="font-family:var(--mono); font-size:28px; font-weight:700; color:var(--accent);">Phase 2 Roadmap</div>
-            <p>Verification and validator onboarding in progress.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Mainnet Roadmap Section -->
-    <section id="roadmap" class="section-padding" style="background:var(--bg2);">
-      <div class="wrap">
-        <div class="eyebrow">Roadmap</div>
-        <h2>Protocol Milestones</h2>
-
-        <div class="rm-grid">
-          <div class="rm-card">
-            <span class="badge badge-live">COMPLETED</span>
-            <div class="rm-date">MAY 2026 · ALPHA-0.1</div>
-            <h3>PoScan Genesis</h3>
-            <p>First deterministic 3D geometry proof mined. Seed-bound asteroid generation established.</p>
-          </div>
-
-          <div class="rm-card">
-            <span class="badge badge-live">COMPLETED</span>
-            <div class="rm-date">2026 · V0.2.0</div>
-            <h3>EVM & GRANDPA Finality</h3>
-            <p>EVM Chain ID 32026 integrated. GRANDPA BFT consensus disposes blocks in under 30 seconds. Sudo key removed.</p>
-          </div>
-
-          <div class="rm-card future">
-            <span class="badge badge-dev">IN DEVELOPMENT</span>
-            <div class="rm-date">NEXT</div>
-            <h3>Mainnet Genesis</h3>
-            <p>Validator set bootstrap, external mining pool integration, and public RPC node cluster deployment.</p>
-          </div>
-
-          <div class="rm-card future">
-            <span class="badge badge-upcoming">UPCOMING</span>
-            <div class="rm-date">PLANNED</div>
-            <h3>Spectral3D Registry</h3>
-            <p>On-chain physical object identity registration and zero-knowledge spatial proof verification.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <section class="section-padding" style="text-align:center;">
+    <!-- =========================== Architecture =============================== -->
+    <section id="architecture" class="section section-alt" aria-labelledby="arch-title">
       <div class="wrap">
-        <h2>Build on Numen</h2>
-        <p class="lead" style="margin: 0 auto 30px;">
-          Deploy EVM smart contracts, connect standard Ethereum developer toolchains, or start scanning blocks today.
-        </p>
-        <div class="cta-row" style="justify-content:center;">
-          <a class="btn-primary" href="developers.html">Developer Quickstart</a>
-          <a class="btn-secondary" href="https://github.com/numen-network/numen" target="_blank" rel="noopener">Explore GitHub</a>
+        <div class="section-head center rv">
+          <p class="eyebrow">Architecture</p>
+          <h2 id="arch-title">From atoms to applications</h2>
+          <p class="lead" style="margin-left:auto;margin-right:auto;">
+            One pipeline carries physical reality to programmable logic &mdash; every layer
+            verifiable, none of it trusted on faith.
+          </p>
+        </div>
+
+        <div class="arch rv">
+          <div class="arch-layer">
+            <div class="arch-rail"><span class="arch-pulse" aria-hidden="true"></span></div>
+            <article class="arch-node">
+              <span class="an-icon" aria-hidden="true">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.6 4.2 5.7 4.2 9S14.8 18.4 12 21c-2.8-2.6-4.2-5.7-4.2-9S9.2 5.6 12 3z"/></svg>
+              </span>
+              <div>
+                <h3>Physical world</h3>
+                <p>Objects, machines, vehicles, infrastructure &mdash; anything with shape.</p>
+              </div>
+              <span class="an-tag">Input</span>
+            </article>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-rail"><span class="arch-pulse" aria-hidden="true"></span></div>
+            <article class="arch-node">
+              <span class="an-icon" aria-hidden="true">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M19.1 4.9A10 10 0 0 0 4.9 4.9M21.5 8.5A13 13 0 0 0 2.5 8.5"/><circle cx="12" cy="15" r="2"/><path d="M8.9 11.9a4.4 4.4 0 0 1 6.2 0M15.1 18.1a4.4 4.4 0 0 1-6.2 0"/></svg>
+              </span>
+              <div>
+                <h3>Recognition &middot; Proof of Scan</h3>
+                <p>Miners grow deterministic meshes and scan them into proofs. Valid seals propose blocks.</p>
+              </div>
+              <span class="an-tag">Consensus</span>
+            </article>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-rail"><span class="arch-pulse" aria-hidden="true"></span></div>
+            <article class="arch-node">
+              <span class="an-icon" aria-hidden="true">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 11c0-3 0-5 3-5s3 3 3 5"/><path d="M12 11c0-5 1-8 5-8 3.5 0 5 3 5 7 0 2.5-1 4.5-2 6"/><path d="M12 11c0-3-1-5-3.5-5S5 8.5 5 12c0 5 1.5 8 4.5 10"/><path d="M12 15v6"/></svg>
+              </span>
+              <div>
+                <h3>Digital identity</h3>
+                <p>Rotation-invariant spectral fingerprints anchor stable identities.</p>
+              </div>
+              <span class="an-tag">Identity</span>
+            </article>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-rail"><span class="arch-pulse" aria-hidden="true"></span></div>
+            <article class="arch-node core">
+              <span class="an-icon" aria-hidden="true">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>
+              </span>
+              <div>
+                <h3>Numen Network</h3>
+                <p>PoW proposals finalized by GRANDPA voting into one canonical ledger.</p>
+              </div>
+              <span class="an-tag">Layer 1</span>
+            </article>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-rail"><span class="arch-pulse" aria-hidden="true"></span></div>
+            <article class="arch-node">
+              <span class="an-icon" aria-hidden="true">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </span>
+              <div>
+                <h3>Smart contracts &middot; EVM</h3>
+                <p>Standard Ethereum tooling deploys contracts and reads state natively.</p>
+              </div>
+              <span class="an-tag">Execution</span>
+            </article>
+          </div>
+
+          <div class="arch-layer">
+            <div class="arch-rail"><span class="arch-pulse" aria-hidden="true"></span></div>
+            <article class="arch-node">
+              <span class="an-icon" aria-hidden="true">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+              </span>
+              <div>
+                <h3>Applications</h3>
+                <p>Identity-aware dApps for provenance, authenticity and machine coordination.</p>
+              </div>
+              <span class="an-tag">Apps</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== Network status ============================== -->
+    <section id="network" class="section" aria-labelledby="network-title">
+      <div class="wrap">
+        <div class="section-head rv">
+          <p class="eyebrow">Network status</p>
+          <h2 id="network-title">Verified parameters, honest status</h2>
+          <p class="lead">
+            Everything below is taken from the open-source runtime and release artifacts.
+            Where live data isn&rsquo;t available yet, we say so instead of guessing.
+          </p>
+        </div>
+
+        <div class="spec-board rv">
+          <div class="spec-cell wide">
+            <span class="chip chip-testnet">Testnet v0.2.0</span>
+            <span class="v">Decentralized testnet</span>
+            <p class="n">Public chain live today &mdash; its former sudo replaced by the tightly restricted Prime authority. Mainnet preparation is in development.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Block target</span>
+            <span class="v">10 <span class="unit">s</span></span>
+            <p class="n">Enforced by ASERT difficulty adjustment anchored at genesis.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Finality</span>
+            <span class="v">GRANDPA</span>
+            <p class="n">BFT validator votes finalize mined proposals.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Block reward</span>
+            <span class="v">16 <span class="unit">NMN</span></span>
+            <p class="n">Halves every 12,500,000 blocks &mdash; roughly four years.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">Mined-issuance cap</span>
+            <span class="v">400<span class="unit">M NMN</span></span>
+            <p class="n">Geometric sum of all halving periods caps total mined supply.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">PoScan parameters</span>
+            <span class="v">4096&times;23</span>
+            <p class="n">Surface samples &times; quantized spectral dimensions per proof.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">EVM chain IDs</span>
+            <span class="v" style="font-size:clamp(1.2rem,2vw,1.6rem);">320261</span>
+            <p class="n">Testnet &middot; devnet 320262 &middot; mainnet reserved 32026.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="k">SS58 prefix</span>
+            <span class="v">14240</span>
+            <p class="n">Address format for accounts and mining payouts.</p>
+          </div>
+          <div class="spec-cell wide" data-live="blockNumber">
+            <span class="k">Live block height</span>
+            <div class="stat-inline">
+              <span class="num" data-live-value aria-live="polite">&mdash;</span>
+              <span class="lbl">Awaiting public endpoint</span>
+            </div>
+            <p class="n" data-live-note>The block explorer is in development. This slot wires directly to any JSON-RPC endpoint &mdash; configure <code>window.NUMEN_LIVE_RPC</code> and it fills automatically.</p>
+          </div>
+        </div>
+
+        <div class="cta-row rv" style="--rvd:100ms; margin-top:26px;">
+          <a class="btn btn-secondary" href="network.html">Protocol deep-dive
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-secondary" href="docs.html#specs">Full specification</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= Why Numen ================================ -->
+    <section id="why" class="section section-alt" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="section-head rv">
+          <p class="eyebrow">Why Numen</p>
+          <h2 id="why-title">Infrastructure choices, made deliberately</h2>
+        </div>
+        <div class="grid g4">
+          <article class="card rv">
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3.2"/></svg>
+              </span>
+              <span class="chip chip-live">Live</span>
+            </div>
+            <h3>The scan is the work</h3>
+            <p>Mining cost computes verifiable geometry instead of arbitrary hashes &mdash; familiar security economics, spent on something inspectable.</p>
+            <div class="card-foot"><a class="link-arrow" href="network.html#poscan">How PoScan works
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </article>
+
+          <article class="card rv" style="--rvd:80ms;">
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5.5L12 2 4 5.5V12c0 6.4 8 10 8 10z"/><path d="M9 11.5l2 2 4-4.5"/></svg>
+              </span>
+              <span class="chip chip-live">Live</span>
+            </div>
+            <h3>Permissionless, then final</h3>
+            <p>Anyone may mine a proposal; GRANDPA validators finalize it. No permit needed to participate &mdash; no reorganizations after finality.</p>
+            <div class="card-foot"><a class="link-arrow" href="network.html#consensus">Consensus details
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </article>
+
+          <article class="card rv" style="--rvd:160ms;">
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </span>
+              <span class="chip chip-avail">Available</span>
+            </div>
+            <h3>Standard EVM tooling</h3>
+            <p>Chain 320261 behind vanilla JSON-RPC. MetaMask, Foundry, Hardhat, viem and ethers run unmodified; an ERC-20 precompile ships built in.</p>
+            <div class="card-foot"><a class="link-arrow" href="developers.html">Developer hub
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </article>
+
+          <article class="card rv" style="--rvd:240ms;">
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <span class="chip chip-live">Live</span>
+            </div>
+            <h3>Open source &amp; governed</h3>
+            <p>MIT-licensed node. OpenGov referenda steer the treasury and upgrades; the Prime authority is deliberately restricted to vetoes and runtime upgrades.</p>
+            <div class="card-foot"><a class="link-arrow" href="#token">How governance works
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================== Applications =============================== -->
+    <section id="applications" class="section" aria-labelledby="apps-title">
+      <div class="wrap">
+        <div class="section-head rv">
+          <p class="eyebrow">Real-world applications</p>
+          <h2 id="apps-title">What stable object identity unlocks</h2>
+          <p class="lead">
+            Most of these are directions, not shipped products. They become practical the
+            moment identities are registrable on-chain &mdash; which is on the roadmap.
+          </p>
+        </div>
+        <div class="grid g3">
+          <article class="card app-card flat rv">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 11c0-3 0-5 3-5s3 3 3 5"/><path d="M12 11c0-5 1-8 5-8 3.5 0 5 3 5 7 0 2.5-1 4.5-2 6"/><path d="M12 11c0-3-1-5-3.5-5S5 8.5 5 12c0 5 1.5 8 4.5 10"/><path d="M12 15v6"/></svg>
+            </span>
+            <h3>Physical asset identity</h3>
+            <p>Spectral3D fingerprints give machines, tools and vehicles IDs that survive rescanning.</p>
+            <span class="status-note">Planned &middot; on-chain registry</span>
+          </article>
+          <article class="card app-card flat rv" style="--rvd:70ms;">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg>
+            </span>
+            <h3>Supply-chain provenance</h3>
+            <p>Verify origin and custody handoffs against an immutable record.</p>
+            <span class="status-note">Potential application</span>
+          </article>
+          <article class="card app-card flat rv" style="--rvd:140ms;">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5.5L12 2 4 5.5V12c0 6.4 8 10 8 10z"/><path d="M9 11.5l2 2 4-4.5"/></svg>
+            </span>
+            <h3>Authenticity</h3>
+            <p>Scan-to-verify checks for high-value goods, parts and documents.</p>
+            <span class="status-note">Potential application</span>
+          </article>
+          <article class="card app-card flat rv" style="--rvd:210ms;">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 20V4"/></svg>
+            </span>
+            <h3>Infrastructure monitoring</h3>
+            <p>Anchor sensor telemetry to a verifiable asset identity.</p>
+            <span class="status-note">Potential application</span>
+          </article>
+          <article class="card app-card flat rv" style="--rvd:280ms;">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="5" y="7" width="14" height="12" rx="2"/><path d="M12 7V4M8 4h8M9 12h.01M15 12h.01M9 16h6"/></svg>
+            </span>
+            <h3>Machine &amp; robot identity</h3>
+            <p>Identities autonomous agents can prove and contracts can trust.</p>
+            <span class="status-note">Potential application</span>
+          </article>
+          <article class="card app-card flat rv" style="--rvd:350ms;">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M10.6 13.4 6.6 17.2M13.4 13.4l4 3.8"/></svg>
+            </span>
+            <h3>DePIN networks</h3>
+            <p>Physical devices attesting real-world activity on-chain.</p>
+            <span class="status-note">Potential application</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Mining ================================== -->
+    <section id="mining" class="section section-alt" aria-labelledby="mine-title">
+      <div class="wrap">
+        <div class="section-head rv">
+          <p class="eyebrow">Mining</p>
+          <h2 id="mine-title">Secure the chain. Earn the emission.</h2>
+          <p class="lead">
+            Numen mining is CPU-friendly geometric scanning &mdash; no ASICs, no stake, no
+            permission. Your keys never touch the mining rig: the node embeds only a payout
+            address in block headers.
+          </p>
+        </div>
+
+        <div class="mine-track rv">
+          <div class="mine-step">
+            <h3>Run a node</h3>
+            <p>Grab a prebuilt binary from releases and sync the testnet chain.</p>
+          </div>
+          <div class="mine-step">
+            <h3>Configure payout</h3>
+            <p>Pass an SS58 address with <code>--miner</code>; generate keys offline.</p>
+          </div>
+          <div class="mine-step">
+            <h3>Get tasks</h3>
+            <p>Pull <code>mining_getTask</code> or subscribe for a fresh task every second.</p>
+          </div>
+          <div class="mine-step">
+            <h3>Scan</h3>
+            <p>Grow the seeded mesh and sweep its surface across all cores.</p>
+          </div>
+          <div class="mine-step">
+            <h3>Submit a seal</h3>
+            <p>Return <code>mining_submitSeal</code> when your hash meets target.</p>
+          </div>
+          <div class="mine-step">
+            <h3>Earn rewards</h3>
+            <p>Valid seals author blocks. Rewards accrue to your payout address.</p>
+          </div>
+        </div>
+
+        <div class="grid g2 rv" style="--rvd:120ms; margin-top:28px; align-items:center;">
+          <div>
+            <div class="cmd" data-copy>
+              <span class="prompt" aria-hidden="true">$</span>
+              <code>./numen --chain testnet-raw.json --miner &lt;SS58_ADDRESS&gt; --node-miner 4</code>
+            </div>
+            <p class="small muted" style="margin-top:12px;">
+              Requirements are modest: 4 cores / 4 GB RAM covers comfortable scanning.
+              Invalid payout addresses refuse to start &mdash; by design.
+            </p>
+          </div>
+          <div class="cta-row" style="justify-content:flex-end;">
+            <a class="btn btn-primary" href="mining.html">Start Mining
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/numen-network/numen/releases" target="_blank" rel="noopener">Download release</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ Developers ================================ -->
+    <section id="developers" class="section" aria-labelledby="dev-title">
+      <div class="wrap">
+        <div class="problem-grid">
+          <div class="rv">
+            <p class="eyebrow">Developers</p>
+            <h2 id="dev-title">Build the physical world on-chain.</h2>
+            <p class="lead" style="margin-top:14px;">
+              Numen speaks plain Ethereum: deploy with Foundry or Hardhat, connect with viem
+              or ethers, sign with MetaMask. Identity-aware applications are just contracts
+              away.
+            </p>
+            <div class="kv-list" style="max-width:420px; margin-top:20px;">
+              <a class="kv-row" href="developers.html#config"><span class="k">Node setup &amp; network config</span><span class="v acc">&rarr;</span></a>
+              <a class="kv-row" href="developers.html#snippets"><span class="k">Smart contract snippets</span><span class="v acc">&rarr;</span></a>
+              <a class="kv-row" href="developers.html#rpc"><span class="k">Mining RPC reference</span><span class="v acc">&rarr;</span></a>
+              <a class="kv-row" href="network.html"><span class="k">Protocol architecture</span><span class="v acc">&rarr;</span></a>
+            </div>
+          </div>
+          <div class="rv" style="--rvd:120ms;">
+            <div class="code-box" data-copy>
+              <div class="code-header"><span>viem &middot; chain definition</span></div>
+              <pre class="code-body"><code><span class="c-key">import</span> { defineChain } <span class="c-key">from</span> <span class="c-str">'viem'</span>
+
+<span class="c-key">export const</span> numenTestnet = <span class="c-fn">defineChain</span>({
+  id: <span class="c-num">320261</span>,
+  name: <span class="c-str">'Numen Testnet'</span>,
+  nativeCurrency: { name: <span class="c-str">'Numen'</span>, symbol: <span class="c-str">'NMN'</span>, decimals: <span class="c-num">18</span> },
+  rpcUrls: {
+    default: { http: [<span class="c-str">'https://rpc.numen-network.org'</span>] },
+  },
+})</code></pre>
+            </div>
+            <p class="small muted" style="margin-top:12px;">
+              Public endpoint availability can vary during testnet &mdash; running your own
+              node is always the reliable path.
+            </p>
+            <div class="cta-row" style="margin-top:18px;">
+              <a class="btn btn-secondary" href="developers.html">Developer hub
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= Token & governance ============================ -->
+    <section id="token" class="section section-alt" aria-labelledby="token-title">
+      <div class="wrap">
+        <div class="section-head rv">
+          <p class="eyebrow">Token &amp; governance</p>
+          <h2 id="token-title">NMN, issued by work &mdash; steered by holders</h2>
+          <p class="lead">
+            No presale numbers here. Emission flows to miners through a fixed halving
+            schedule; direction is set by on-chain governance.
+          </p>
+        </div>
+        <div class="grid g2">
+          <div class="card rv">
+            <div class="card-head"><h3 style="margin:0;">Verified token facts</h3><span class="chip chip-live">From runtime source</span></div>
+            <div class="kv-list">
+              <div class="kv-row"><span class="k">Symbol</span><span class="v">NMN</span></div>
+              <div class="kv-row"><span class="k">Decimals</span><span class="v">18</span></div>
+              <div class="kv-row"><span class="k">Initial block reward</span><span class="v">16 NMN</span></div>
+              <div class="kv-row"><span class="k">Halving interval</span><span class="v">12,500,000 blocks &asymp; 4 yr</span></div>
+              <div class="kv-row"><span class="k">Mined-issuance cap</span><span class="v acc">400,000,000 NMN</span></div>
+              <div class="kv-row"><span class="k">Reward destination</span><span class="v">Miner payout address</span></div>
+              <div class="kv-row"><span class="k">Explorer</span><span class="v">In development</span></div>
+            </div>
+          </div>
+          <div class="card rv" style="--rvd:100ms;">
+            <div class="card-head"><h3 style="margin:0;">Community governance</h3><span class="chip chip-live">OpenGov</span></div>
+            <p>Token holders steer the protocol through <strong>OpenGov referenda</strong> with conviction voting. Treasury spends and bounties pass through ranked tracks &mdash; from small tips to major initiatives.</p>
+            <p>The remaining upgrade authority (<strong>Prime</strong>) is deliberately narrow: runtime upgrades, cancelling referenda and rejecting treasury spends. Nothing else.</p>
+            <div class="kv-list">
+              <div class="kv-row"><span class="k">Referenda</span><span class="v acc">Live</span></div>
+              <div class="kv-row"><span class="k">Conviction voting</span><span class="v acc">Live</span></div>
+              <div class="kv-row"><span class="k">Treasury &amp; bounties</span><span class="v acc">Live</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Roadmap ================================= -->
+    <section id="roadmap" class="section" aria-labelledby="roadmap-title">
+      <div class="wrap">
+        <div class="section-head rv">
+          <p class="eyebrow">Roadmap</p>
+          <h2 id="roadmap-title">Where things stand</h2>
+          <p class="lead">Statuses reflect the public repository and releases &mdash; nothing is marked done until it ships.</p>
+        </div>
+
+        <div class="timeline rv">
+          <div class="tl-col">
+            <div class="tl-col-head"><h3>Completed</h3><span class="chip chip-live">Shipped</span></div>
+            <div class="tl-item done">
+              <span class="tl-date">May 2026 &middot; Alpha</span>
+              <h4>PoScan genesis</h4>
+              <p>Deterministic geometry proof-of-work live at testnet genesis.</p>
+            </div>
+            <div class="tl-item done">
+              <span class="tl-date">v0.2.0 &middot; current</span>
+              <h4>Hardened testnet</h4>
+              <p>EVM execution behind standard JSON-RPC, GRANDPA finality, sudo replaced by the restricted Prime authority.</p>
+            </div>
+          </div>
+          <div class="tl-col">
+            <div class="tl-col-head"><h3>In development</h3><span class="chip chip-dev">Active</span></div>
+            <div class="tl-item doing">
+              <span class="tl-date">Next</span>
+              <h4>Mainnet preparation</h4>
+              <p>Validator bootstrap, external-miner hardening and a public RPC cluster.</p>
+            </div>
+            <div class="tl-item doing">
+              <span class="tl-date">Parallel</span>
+              <h4>Block explorer</h4>
+              <p>Blocks, seals and finality visible to everyone.</p>
+            </div>
+          </div>
+          <div class="tl-col">
+            <div class="tl-col-head"><h3>Planned</h3><span class="chip chip-plan">Future</span></div>
+            <div class="tl-item next">
+              <span class="tl-date">Planned</span>
+              <h4>Spectral3D registry</h4>
+              <p>On-chain registration for physical-object identities.</p>
+            </div>
+            <div class="tl-item next">
+              <span class="tl-date">Planned</span>
+              <h4>Mining pool protocol</h4>
+              <p>Open stratum software so smaller miners combine hashrate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= Community ================================ -->
+    <section id="community" class="section section-alt" aria-labelledby="community-title">
+      <div class="wrap">
+        <div class="section-head rv">
+          <p class="eyebrow">Community</p>
+          <h2 id="community-title">Built in public, governed together</h2>
+        </div>
+        <div class="grid g3">
+          <a class="card social-card flat rv" href="https://discord.gg/WKmyTfmaa" target="_blank" rel="noopener">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </span>
+            <span><h3>Discord</h3><p>Engineering talk, mining support and updates.</p></span>
+            <span class="sc-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="card social-card flat rv" style="--rvd:70ms;" href="https://t.me/numen_network" target="_blank" rel="noopener">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </span>
+            <span><h3>Telegram</h3><p>The main community chat.</p></span>
+            <span class="sc-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="card social-card flat rv" style="--rvd:140ms;" href="https://x.com/numen_network" target="_blank" rel="noopener">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+            </span>
+            <span><h3>X / Twitter</h3><p>Announcements and research notes.</p></span>
+            <span class="sc-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="card social-card flat rv" style="--rvd:210ms;" href="https://github.com/numen-network/numen" target="_blank" rel="noopener">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </span>
+            <span><h3>GitHub</h3><p>MIT-licensed node, issues and releases.</p></span>
+            <span class="sc-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="card social-card flat rv" style="--rvd:280ms;" href="https://www.youtube.com/@numen_network" target="_blank" rel="noopener">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </span>
+            <span><h3>YouTube</h3><p>Demos and technical walkthroughs.</p></span>
+            <span class="sc-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+          <a class="card social-card flat rv" style="--rvd:350ms;" href="mailto:contact@numen-network.org">
+            <span class="card-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            </span>
+            <span><h3>Email</h3><p>contact@numen-network.org</p></span>
+            <span class="sc-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Final CTA =============================== -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div class="cta-band rv">
+          <p class="eyebrow" style="justify-content:center;">Get involved</p>
+          <h2 id="cta-title">Understand it. Run it. Build it.</h2>
+          <p class="lead">
+            Three ways into Numen: study the protocol, join consensus as a miner, or ship
+            your first contract today.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="developers.html">Build on Numen</a>
+            <a class="btn btn-secondary" href="mining.html">Start Mining</a>
+            <a class="btn btn-ghost" href="docs.html">Read the docs
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
+  <!-- ================================ Footer ================================ -->
   <footer class="footer">
-    <div class="wrap">
+    <div class="wrap wrap-wide">
       <div class="footer-grid">
-        <div class="footer-col">
-          <div class="logo" style="margin-bottom:16px;">
-            <div class="logo-mark" aria-hidden="true"></div>
-            <span class="logo-name">NUMEN NETWORK</span>
-          </div>
-          <p style="font-size:13.5px; color:var(--body); margin-bottom:16px;">
-            Proof-of-Scan Layer 1 blockchain. Turning physical and computational geometry into cryptographic consensus.
-          </p>
-          <span class="badge badge-testnet">TESTNET v0.2.0</span>
+        <div class="footer-brand">
+          <a class="logo" href="index.html" aria-label="Numen Network home">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <span class="logo-name">NUMEN<b>&middot;</b>NETWORK</span>
+          </a>
+          <p>A Proof-of-Scan Layer 1 connecting the physical world to verifiable digital identities. Built with the Polkadot SDK. Open source under MIT.</p>
+          <span class="chip chip-testnet">Testnet v0.2.0</span>
         </div>
 
-        <div class="footer-col">
-          <h4>Protocol</h4>
+        <nav class="footer-col" aria-label="Network links">
+          <h4>Network</h4>
           <ul>
-            <li><a href="network.html#poscan">Proof-of-Scan</a></li>
-            <li><a href="network.html#consensus">Hybrid Consensus</a></li>
-            <li><a href="network.html#vision">Spectral3D</a></li>
-            <li><a href="network.html#mine">Mining Guide</a></li>
+            <li><a href="network.html">Technology</a></li>
+            <li><a href="network.html#poscan">Proof of Scan</a></li>
+            <li><a href="index.html#network">Network status</a></li>
+            <li><a href="mining.html">Mining</a></li>
           </ul>
-        </div>
+        </nav>
 
-        <div class="footer-col">
+        <nav class="footer-col" aria-label="Developers links">
           <h4>Developers</h4>
           <ul>
-            <li><a href="developers.html">Developer Hub</a></li>
-            <li><a href="developers.html#rpc">RPC Configuration</a></li>
-            <li><a href="developers.html#snippets">Code Examples</a></li>
-            <li><a href="https://github.com/numen-network/numen" target="_blank" rel="noopener">GitHub Repo</a></li>
+            <li><a href="developers.html">Developer hub</a></li>
+            <li><a href="developers.html#config">Network config</a></li>
+            <li><a href="developers.html#snippets">Code examples</a></li>
+            <li><a href="developers.html#rpc">Mining RPC</a></li>
           </ul>
-        </div>
+        </nav>
 
-        <div class="footer-col">
-          <h4>Ecosystem</h4>
+        <nav class="footer-col" aria-label="Resources links">
+          <h4>Resources</h4>
           <ul>
-            <li><a href="ecosystem.html">Ecosystem Hub</a></li>
-            <li><a href="ecosystem.html#community">Community Channels</a></li>
             <li><a href="docs.html">Documentation</a></li>
-            <li><a href="mailto:contact@numen-network.org">Contact Team</a></li>
+            <li><a href="docs.html#specs">Spec sheet</a></li>
+            <li><a href="docs.html#faq">FAQ</a></li>
+            <li><a href="https://github.com/numen-network/numen/releases" target="_blank" rel="noopener">Releases</a></li>
           </ul>
-        </div>
+        </nav>
+
+        <nav class="footer-col" aria-label="Community links">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://discord.gg/WKmyTfmaa" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="https://t.me/numen_network" target="_blank" rel="noopener">Telegram</a></li>
+            <li><a href="https://x.com/numen_network" target="_blank" rel="noopener">X / Twitter</a></li>
+            <li><a href="mailto:contact@numen-network.org">Contact</a></li>
+          </ul>
+        </nav>
       </div>
 
       <div class="footer-bottom">
-        <span class="foot-copy">© 2026 Numen Network. Open source protocol.</span>
-
+        <span class="foot-copy">&copy; <span data-year>2026</span> Numen Network &middot; Open source under <a href="https://github.com/numen-network/numen/blob/master/LICENSE" target="_blank" rel="noopener">MIT</a></span>
         <div class="foot-socials">
-          <a class="foot-icon" href="https://github.com/numen-network/numen" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-          <a class="foot-icon" href="https://discord.gg/ajPKdvrvJK" target="_blank" rel="noopener" aria-label="Discord"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
-          <a class="foot-icon" href="https://x.com/numen_network" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
-          <a class="foot-icon" href="https://t.me/numen_network" target="_blank" rel="noopener" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+          <a class="foot-icon" href="https://github.com/numen-network/numen" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+          <a class="foot-icon" href="https://x.com/numen_network" target="_blank" rel="noopener" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+          <a class="foot-icon" href="https://discord.gg/WKmyTfmaa" target="_blank" rel="noopener" aria-label="Discord"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+          <a class="foot-icon" href="https://t.me/numen_network" target="_blank" rel="noopener" aria-label="Telegram"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+          <a class="foot-icon" href="https://www.youtube.com/@numen_network" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
         </div>
       </div>
     </div>
