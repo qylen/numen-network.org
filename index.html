@@ -12,30 +12,58 @@
 <meta property="og:image" content="https://numen-network.org/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@numen_network">
+<meta name="theme-color" content="#0d0e12">
+<meta name="theme-color" content="#fafbfd" media="(prefers-color-scheme: light)">
 <link rel="canonical" href="https://numen-network.org/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%2322d3ee'/%3E%3Cpath d='M4.3 12V4h1.9l3.6 5V4h1.9v8H9.8L6.2 7v5z' fill='%230d0e12'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script>if (localStorage.getItem('numen-theme') === 'light') document.documentElement.dataset.theme = 'light';</script>
+<script>(function(){try{var t=localStorage.getItem('numen-theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t==='light')document.documentElement.dataset.theme='light';}catch(e){}})();</script>
 <script src="asteroid.js" defer></script>
 <script src="poscan-sim.js" defer></script>
+<script src="main.js" defer></script>
 
 <!-- Structured Metadata (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Numen Network",
-  "applicationCategory": "Blockchain Protocol",
-  "operatingSystem": "Linux, macOS",
-  "description": "Proof-of-Scan Layer 1 protocol uniting PoW mining, BFT finality, and Spectral3D computational proof.",
-  "url": "https://numen-network.org/"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Numen Network",
+      "url": "https://numen-network.org/",
+      "logo": "https://numen-network.org/og.png",
+      "description": "Numen Network develops the Proof-of-Scan Layer 1 blockchain protocol.",
+      "sameAs": [
+        "https://github.com/numen-network/numen",
+        "https://x.com/numen_network",
+        "https://t.me/numen_network",
+        "https://discord.gg/ajPKdvrvJK"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Numen Network",
+      "url": "https://numen-network.org/"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Numen Network",
+      "applicationCategory": "Blockchain Protocol",
+      "operatingSystem": "Linux, macOS",
+      "description": "Proof-of-Scan Layer 1 protocol uniting PoW mining, BFT finality, and Spectral3D computational proof.",
+      "url": "https://numen-network.org/",
+      "softwareVersion": "0.2.0"
+    }
+  ]
 }
 </script>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <canvas id="sky" aria-hidden="true"></canvas>
 
@@ -62,10 +90,22 @@
         <svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
         <svg class="ic-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
+      <button class="nav-burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <main>
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <a class="active" href="index.html">Overview</a>
+    <a href="network.html">Protocol</a>
+    <a href="developers.html">Developers</a>
+    <a href="ecosystem.html">Ecosystem</a>
+    <a href="docs.html">Docs</a>
+    <a href="developers.html">Start Building →</a>
+  </div>
+
+  <main id="main">
 
     <!-- Hero Section -->
     <header class="hero">
@@ -77,9 +117,9 @@
             Numen turns scanning into proof, proof into consensus, and consensus into a deterministic ledger for things. Powered by 10-second PoW proposals, GRANDPA BFT finality, and full EVM compatibility.
           </p>
           <div class="cta-row">
-            <a class="btn-primary" href="#poscan">Explore the Network</a>
+            <a class="btn-primary" href="#poscan">Explore Network</a>
             <a class="btn-secondary" href="network.html#mine">Start Mining</a>
-            <a class="btn-secondary" href="developers.html">Read Developer Docs</a>
+            <a class="btn-secondary" href="developers.html">Developer Quickstart</a>
           </div>
         </div>
       </div>
@@ -187,17 +227,18 @@
                   <span>Input Nonce / Seed</span>
                   <span id="sim-nonce-val">Nonce: 32026</span>
                 </label>
-                <input type="range" id="sim-nonce" class="sim-slider" min="1" max="100000" value="32026">
+                <input type="range" id="sim-nonce" class="sim-slider" min="1" max="100000" value="32026"
+                  aria-describedby="sim-output-panel">
               </div>
 
-              <div class="sim-output">
+              <div class="sim-output" id="sim-output-panel" aria-live="polite">
                 <div class="sim-out-row">
                   <span style="color:var(--lead);">Derived Seed:</span>
-                  <span class="sim-out-val" id="sim-seed">0x8a92...f420</span>
+                  <span class="sim-out-val" id="sim-seed">0x8a92f3b1c4d5e6f7</span>
                 </div>
                 <div class="sim-out-row">
-                  <span style="color:var(--lead);">Asteroid Mesh:</span>
-                  <span class="sim-out-val">2,562 Vertices / 5,120 Faces</span>
+                  <span style="color:var(--lead);">Preview Mesh:</span>
+                  <span class="sim-out-val" id="sim-mesh">642 Vertices / 1,280 Faces</span>
                 </div>
                 <div class="sim-out-row">
                   <span style="color:var(--lead);">Surface Scan:</span>
@@ -209,7 +250,7 @@
                 </div>
                 <div class="sim-out-row" style="border-top:1px solid var(--line2); padding-top:8px; margin-top:4px;">
                   <span style="color:var(--lead);">Computed Seal Hash:</span>
-                  <span class="sim-out-val" id="sim-hash">0x00004a8f9c2e...</span>
+                  <span class="sim-out-val" id="sim-hash">0x00004a8f9c2e71bd</span>
                 </div>
               </div>
             </div>
@@ -393,16 +434,6 @@
   </footer>
 
 </div>
-
-<script>
-document.querySelector('.theme-toggle').addEventListener('click', () => {
-  const light = document.documentElement.dataset.theme !== 'light';
-  if (light) document.documentElement.dataset.theme = 'light';
-  else delete document.documentElement.dataset.theme;
-  localStorage.setItem('numen-theme', light ? 'light' : 'dark');
-  if (window.__rockStill) window.__rockStill();
-});
-</script>
 
 </body>
 </html>
